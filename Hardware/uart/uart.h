@@ -3,7 +3,9 @@
 
 #include "stm32f4xx.h"
 #include <stdio.h>
-
+#if SYSTEM_SUPPORT_OS
+#include "FreeRTOS.h" //os 使用
+#endif
 
 void UARTInit(uint32_t BAUDRATE);
 void UART_SendByte(USART_TypeDef *USARTx, uint8_t data);

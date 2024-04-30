@@ -30,5 +30,17 @@
 .\objects\main.o: ..\Periph\inc\misc.h
 .\objects\main.o: ..\Hardware\uart\uart.h
 .\objects\main.o: D:\Keil\Keil_core\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: ..\Hardware\freertos\include\FreeRTOS.h
+.\objects\main.o: D:\Keil\Keil_core\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\main.o: ..\Hardware\freertos\FreeRTOSConfig.h
+.\objects\main.o: ..\Hardware\uart\uart.h
+.\objects\main.o: ..\Hardware\freertos\include\projdefs.h
+.\objects\main.o: ..\Hardware\freertos\include\portable.h
+.\objects\main.o: ..\Hardware\freertos\include\deprecated_definitions.h
+.\objects\main.o: ..\Hardware\freertos\port\RVDS\ARM_CM4F\portmacro.h
+.\objects\main.o: ..\Hardware\freertos\include\mpu_wrappers.h
 .\objects\main.o: ..\Hardware\led\led.h
 .\objects\main.o: ..\Hardware\delay\delay.h
+.\objects\main.o: ..\Hardware\freertos\rtosTop.h
+.\objects\main.o: ..\Hardware\freertos\include\task.h
+.\objects\main.o: ..\Hardware\freertos\include\list.h

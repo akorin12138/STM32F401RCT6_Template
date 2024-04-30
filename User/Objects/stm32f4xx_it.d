@@ -29,3 +29,15 @@
 .\objects\stm32f4xx_it.o: ..\Periph\inc\stm32f4xx_wwdg.h
 .\objects\stm32f4xx_it.o: ..\Periph\inc\misc.h
 .\objects\stm32f4xx_it.o: ..\..\STM32F401_Template\main.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\FreeRTOS.h
+.\objects\stm32f4xx_it.o: D:\Keil\Keil_core\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\FreeRTOSConfig.h
+.\objects\stm32f4xx_it.o: ..\Hardware\uart\uart.h
+.\objects\stm32f4xx_it.o: D:\Keil\Keil_core\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\projdefs.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\portable.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\deprecated_definitions.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\port\RVDS\ARM_CM4F\portmacro.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\mpu_wrappers.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\task.h
+.\objects\stm32f4xx_it.o: ..\Hardware\freertos\include\list.h

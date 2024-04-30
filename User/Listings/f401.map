@@ -207,7 +207,6 @@ Section Cross References
     stm32f4xx_usart_1.o(i.USART_DeInit) refers to stm32f4xx_rcc_1.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
     stm32f4xx_usart_1.o(i.USART_Init) refers to stm32f4xx_rcc_1.o(i.RCC_GetClocksFreq) for RCC_GetClocksFreq
     stm32f4xx_wwdg_1.o(i.WWDG_DeInit) refers to stm32f4xx_rcc_1.o(i.RCC_APB1PeriphResetCmd) for RCC_APB1PeriphResetCmd
-    stm32f4xx_it.o(i.SysTick_Handler) refers to stm32f4xx_it.o(i.TimingDelay_Decrement) for TimingDelay_Decrement
     stm32f4xx_it.o(i.TimingDelay_Decrement) refers to stm32f4xx_it.o(.data) for .data
     system_stm32f4xx.o(i.SystemCoreClockUpdate) refers to system_stm32f4xx.o(.data) for .data
     system_stm32f4xx.o(i.SystemInit) refers to system_stm32f4xx.o(i.SetSysClock) for SetSysClock
@@ -218,19 +217,15 @@ Section Cross References
     startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.MemManage_Handler) for MemManage_Handler
     startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.BusFault_Handler) for BusFault_Handler
     startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.UsageFault_Handler) for UsageFault_Handler
-    startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.SVC_Handler) for SVC_Handler
+    startup_stm32f401xx.o(RESET) refers to port.o(.emb_text) for SVC_Handler
     startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.DebugMon_Handler) for DebugMon_Handler
-    startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.PendSV_Handler) for PendSV_Handler
-    startup_stm32f401xx.o(RESET) refers to stm32f4xx_it.o(i.SysTick_Handler) for SysTick_Handler
+    startup_stm32f401xx.o(RESET) refers to port.o(i.SysTick_Handler) for SysTick_Handler
     startup_stm32f401xx.o(.text) refers to system_stm32f4xx.o(i.SystemInit) for SystemInit
     startup_stm32f401xx.o(.text) refers to entry.o(.ARM.Collect$$$$00000000) for __main
     main.o(i.main) refers to uart.o(i.UARTInit) for UARTInit
     main.o(i.main) refers to led.o(i.ledInit) for ledInit
     main.o(i.main) refers to delay.o(i.delayInit) for delayInit
-    main.o(i.main) refers to stm32f4xx_gpio_1.o(i.GPIO_ResetBits) for GPIO_ResetBits
-    main.o(i.main) refers to stm32f4xx_gpio_1.o(i.GPIO_SetBits) for GPIO_SetBits
-    main.o(i.main) refers to printfb.o(i.__0printf$bare) for __2printf
-    main.o(i.main) refers to delay.o(i.delay_ms) for delay_ms
+    main.o(i.main) refers to rtostop.o(i.rtos_init) for rtos_init
     uart.o(i.NVIC_Config_UART) refers to misc_1.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
     uart.o(i.NVIC_Config_UART) refers to misc_1.o(i.NVIC_Init) for NVIC_Init
     uart.o(i.UARTInit) refers to stm32f4xx_rcc_1.o(i.RCC_AHB1PeriphClockCmd) for RCC_AHB1PeriphClockCmd
@@ -253,6 +248,482 @@ Section Cross References
     delay.o(i.delay_us) refers to delay.o(i.delayInit) for delayInit
     delay.o(i.delay_us) refers to delay.o(i.delay_ms) for delay_ms
     delay.o(i.delay_us) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    heap_4.o(i.prvHeapInit) refers to heap_4.o(.bss) for .bss
+    heap_4.o(i.prvHeapInit) refers to heap_4.o(.data) for .data
+    heap_4.o(i.prvInsertBlockIntoFreeList) refers to heap_4.o(.data) for .data
+    heap_4.o(i.pvPortCalloc) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    heap_4.o(i.pvPortCalloc) refers to memseta.o(.text) for __aeabi_memclr
+    heap_4.o(i.pvPortMalloc) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    heap_4.o(i.pvPortMalloc) refers to heap_4.o(i.prvHeapInit) for prvHeapInit
+    heap_4.o(i.pvPortMalloc) refers to heap_4.o(i.prvInsertBlockIntoFreeList) for prvInsertBlockIntoFreeList
+    heap_4.o(i.pvPortMalloc) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    heap_4.o(i.pvPortMalloc) refers to heap_4.o(.data) for .data
+    heap_4.o(i.vPortFree) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    heap_4.o(i.vPortFree) refers to heap_4.o(i.prvInsertBlockIntoFreeList) for prvInsertBlockIntoFreeList
+    heap_4.o(i.vPortFree) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    heap_4.o(i.vPortFree) refers to heap_4.o(.data) for .data
+    heap_4.o(i.vPortGetHeapStats) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    heap_4.o(i.vPortGetHeapStats) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    heap_4.o(i.vPortGetHeapStats) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    heap_4.o(i.vPortGetHeapStats) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    heap_4.o(i.vPortGetHeapStats) refers to heap_4.o(.data) for .data
+    heap_4.o(i.xPortGetFreeHeapSize) refers to heap_4.o(.data) for .data
+    heap_4.o(i.xPortGetMinimumEverFreeHeapSize) refers to heap_4.o(.data) for .data
+    port.o(.emb_text) refers to tasks.o(i.vTaskSwitchContext) for vTaskSwitchContext
+    port.o(.emb_text) refers to tasks.o(.data) for pxCurrentTCB
+    port.o(i.SysTick_Handler) refers to tasks.o(i.xTaskIncrementTick) for xTaskIncrementTick
+    port.o(i.prvTaskExitError) refers to port.o(.data) for .data
+    port.o(i.pxPortInitialiseStack) refers to port.o(i.prvTaskExitError) for prvTaskExitError
+    port.o(i.vPortEndScheduler) refers to port.o(.data) for .data
+    port.o(i.vPortEnterCritical) refers to port.o(.data) for .data
+    port.o(i.vPortExitCritical) refers to port.o(.data) for .data
+    port.o(i.vPortSetupTimerInterrupt) refers to system_stm32f4xx.o(.data) for SystemCoreClock
+    port.o(i.vPortValidateInterruptPriority) refers to port.o(.emb_text) for vPortGetIPSR
+    port.o(i.vPortValidateInterruptPriority) refers to port.o(.data) for .data
+    port.o(i.xPortStartScheduler) refers to port.o(i.vPortSetupTimerInterrupt) for vPortSetupTimerInterrupt
+    port.o(i.xPortStartScheduler) refers to port.o(.emb_text) for __asm___6_port_c_39a90d8d__prvEnableVFP
+    port.o(i.xPortStartScheduler) refers to port.o(.data) for .data
+    event_groups.o(i.vEventGroupClearBitsCallback) refers to event_groups.o(i.xEventGroupClearBits) for xEventGroupClearBits
+    event_groups.o(i.vEventGroupDelete) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    event_groups.o(i.vEventGroupDelete) refers to tasks.o(i.vTaskRemoveFromUnorderedEventList) for vTaskRemoveFromUnorderedEventList
+    event_groups.o(i.vEventGroupDelete) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    event_groups.o(i.vEventGroupDelete) refers to heap_4.o(i.vPortFree) for vPortFree
+    event_groups.o(i.vEventGroupSetBitsCallback) refers to event_groups.o(i.xEventGroupSetBits) for xEventGroupSetBits
+    event_groups.o(i.xEventGroupClearBits) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    event_groups.o(i.xEventGroupClearBits) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    event_groups.o(i.xEventGroupCreate) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    event_groups.o(i.xEventGroupCreate) refers to list.o(i.vListInitialise) for vListInitialise
+    event_groups.o(i.xEventGroupSetBits) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    event_groups.o(i.xEventGroupSetBits) refers to tasks.o(i.vTaskRemoveFromUnorderedEventList) for vTaskRemoveFromUnorderedEventList
+    event_groups.o(i.xEventGroupSetBits) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    event_groups.o(i.xEventGroupSync) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    event_groups.o(i.xEventGroupSync) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    event_groups.o(i.xEventGroupSync) refers to event_groups.o(i.xEventGroupSetBits) for xEventGroupSetBits
+    event_groups.o(i.xEventGroupSync) refers to tasks.o(i.vTaskPlaceOnUnorderedEventList) for vTaskPlaceOnUnorderedEventList
+    event_groups.o(i.xEventGroupSync) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    event_groups.o(i.xEventGroupSync) refers to tasks.o(i.uxTaskResetEventItemValue) for uxTaskResetEventItemValue
+    event_groups.o(i.xEventGroupSync) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    event_groups.o(i.xEventGroupSync) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    event_groups.o(i.xEventGroupWaitBits) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    event_groups.o(i.xEventGroupWaitBits) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    event_groups.o(i.xEventGroupWaitBits) refers to event_groups.o(i.prvTestWaitCondition) for prvTestWaitCondition
+    event_groups.o(i.xEventGroupWaitBits) refers to tasks.o(i.vTaskPlaceOnUnorderedEventList) for vTaskPlaceOnUnorderedEventList
+    event_groups.o(i.xEventGroupWaitBits) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    event_groups.o(i.xEventGroupWaitBits) refers to tasks.o(i.uxTaskResetEventItemValue) for uxTaskResetEventItemValue
+    event_groups.o(i.xEventGroupWaitBits) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    event_groups.o(i.xEventGroupWaitBits) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.pcQueueGetName) refers to queue.o(.bss) for .bss
+    queue.o(i.prvCopyDataFromQueue) refers to memcpya.o(.text) for __aeabi_memcpy
+    queue.o(i.prvCopyDataToQueue) refers to memcpya.o(.text) for __aeabi_memcpy
+    queue.o(i.prvCopyDataToQueue) refers to tasks.o(i.xTaskPriorityDisinherit) for xTaskPriorityDisinherit
+    queue.o(i.prvInitialiseMutex) refers to queue.o(i.xQueueGenericSend) for xQueueGenericSend
+    queue.o(i.prvInitialiseNewQueue) refers to queue.o(i.xQueueGenericReset) for xQueueGenericReset
+    queue.o(i.prvIsQueueEmpty) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.prvIsQueueEmpty) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.prvIsQueueFull) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.prvIsQueueFull) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.prvUnlockQueue) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.prvUnlockQueue) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.prvUnlockQueue) refers to tasks.o(i.vTaskMissedYield) for vTaskMissedYield
+    queue.o(i.prvUnlockQueue) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.uxQueueMessagesWaiting) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.uxQueueMessagesWaiting) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.uxQueueSpacesAvailable) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.uxQueueSpacesAvailable) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.vQueueAddToRegistry) refers to queue.o(.bss) for .bss
+    queue.o(i.vQueueDelete) refers to queue.o(i.vQueueUnregisterQueue) for vQueueUnregisterQueue
+    queue.o(i.vQueueDelete) refers to heap_4.o(i.vPortFree) for vPortFree
+    queue.o(i.vQueueUnregisterQueue) refers to queue.o(.bss) for .bss
+    queue.o(i.vQueueWaitForMessageRestricted) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.vQueueWaitForMessageRestricted) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.vQueueWaitForMessageRestricted) refers to tasks.o(i.vTaskPlaceOnEventListRestricted) for vTaskPlaceOnEventListRestricted
+    queue.o(i.vQueueWaitForMessageRestricted) refers to queue.o(i.prvUnlockQueue) for prvUnlockQueue
+    queue.o(i.xQueueCreateCountingSemaphore) refers to queue.o(i.xQueueGenericCreate) for xQueueGenericCreate
+    queue.o(i.xQueueCreateMutex) refers to queue.o(i.xQueueGenericCreate) for xQueueGenericCreate
+    queue.o(i.xQueueCreateMutex) refers to queue.o(i.prvInitialiseMutex) for prvInitialiseMutex
+    queue.o(i.xQueueGenericCreate) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    queue.o(i.xQueueGenericCreate) refers to queue.o(i.prvInitialiseNewQueue) for prvInitialiseNewQueue
+    queue.o(i.xQueueGenericReset) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.xQueueGenericReset) refers to list.o(i.vListInitialise) for vListInitialise
+    queue.o(i.xQueueGenericReset) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.xQueueGenericReset) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    queue.o(i.xQueueGenericSend) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.xQueueGenericSend) refers to queue.o(i.prvCopyDataToQueue) for prvCopyDataToQueue
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueGenericSend) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+    queue.o(i.xQueueGenericSend) refers to queue.o(i.prvUnlockQueue) for prvUnlockQueue
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    queue.o(i.xQueueGenericSend) refers to queue.o(i.prvIsQueueFull) for prvIsQueueFull
+    queue.o(i.xQueueGenericSend) refers to tasks.o(i.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+    queue.o(i.xQueueGenericSendFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    queue.o(i.xQueueGenericSendFromISR) refers to queue.o(i.prvCopyDataToQueue) for prvCopyDataToQueue
+    queue.o(i.xQueueGenericSendFromISR) refers to tasks.o(i.uxTaskGetNumberOfTasks) for uxTaskGetNumberOfTasks
+    queue.o(i.xQueueGenericSendFromISR) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueGiveFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    queue.o(i.xQueueGiveFromISR) refers to tasks.o(i.uxTaskGetNumberOfTasks) for uxTaskGetNumberOfTasks
+    queue.o(i.xQueueGiveFromISR) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueGiveMutexRecursive) refers to tasks.o(i.xTaskGetCurrentTaskHandle) for xTaskGetCurrentTaskHandle
+    queue.o(i.xQueueGiveMutexRecursive) refers to queue.o(i.xQueueGenericSend) for xQueueGenericSend
+    queue.o(i.xQueuePeek) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    queue.o(i.xQueuePeek) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.xQueuePeek) refers to queue.o(i.prvCopyDataFromQueue) for prvCopyDataFromQueue
+    queue.o(i.xQueuePeek) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueuePeek) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.xQueuePeek) refers to tasks.o(i.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+    queue.o(i.xQueuePeek) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    queue.o(i.xQueuePeek) refers to tasks.o(i.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+    queue.o(i.xQueuePeek) refers to queue.o(i.prvUnlockQueue) for prvUnlockQueue
+    queue.o(i.xQueuePeek) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    queue.o(i.xQueuePeek) refers to queue.o(i.prvIsQueueEmpty) for prvIsQueueEmpty
+    queue.o(i.xQueuePeek) refers to tasks.o(i.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+    queue.o(i.xQueuePeekFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    queue.o(i.xQueuePeekFromISR) refers to queue.o(i.prvCopyDataFromQueue) for prvCopyDataFromQueue
+    queue.o(i.xQueueReceive) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    queue.o(i.xQueueReceive) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.xQueueReceive) refers to queue.o(i.prvCopyDataFromQueue) for prvCopyDataFromQueue
+    queue.o(i.xQueueReceive) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueReceive) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.xQueueReceive) refers to tasks.o(i.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+    queue.o(i.xQueueReceive) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    queue.o(i.xQueueReceive) refers to tasks.o(i.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+    queue.o(i.xQueueReceive) refers to queue.o(i.prvUnlockQueue) for prvUnlockQueue
+    queue.o(i.xQueueReceive) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    queue.o(i.xQueueReceive) refers to queue.o(i.prvIsQueueEmpty) for prvIsQueueEmpty
+    queue.o(i.xQueueReceive) refers to tasks.o(i.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+    queue.o(i.xQueueReceiveFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    queue.o(i.xQueueReceiveFromISR) refers to queue.o(i.prvCopyDataFromQueue) for prvCopyDataFromQueue
+    queue.o(i.xQueueReceiveFromISR) refers to tasks.o(i.uxTaskGetNumberOfTasks) for uxTaskGetNumberOfTasks
+    queue.o(i.xQueueReceiveFromISR) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    queue.o(i.xQueueSemaphoreTake) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.pvTaskIncrementMutexHeldCount) for pvTaskIncrementMutexHeldCount
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.xTaskRemoveFromEventList) for xTaskRemoveFromEventList
+    queue.o(i.xQueueSemaphoreTake) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+    queue.o(i.xQueueSemaphoreTake) refers to queue.o(i.prvUnlockQueue) for prvUnlockQueue
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    queue.o(i.xQueueSemaphoreTake) refers to queue.o(i.prvIsQueueEmpty) for prvIsQueueEmpty
+    queue.o(i.xQueueSemaphoreTake) refers to queue.o(i.prvGetDisinheritPriorityAfterTimeout) for prvGetDisinheritPriorityAfterTimeout
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.vTaskPriorityDisinheritAfterTimeout) for vTaskPriorityDisinheritAfterTimeout
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.xTaskPriorityInherit) for xTaskPriorityInherit
+    queue.o(i.xQueueSemaphoreTake) refers to tasks.o(i.vTaskPlaceOnEventList) for vTaskPlaceOnEventList
+    queue.o(i.xQueueTakeMutexRecursive) refers to tasks.o(i.xTaskGetCurrentTaskHandle) for xTaskGetCurrentTaskHandle
+    queue.o(i.xQueueTakeMutexRecursive) refers to queue.o(i.xQueueSemaphoreTake) for xQueueSemaphoreTake
+    stream_buffer.o(i.prvInitialiseNewStreamBuffer) refers to memseta.o(.text) for memset
+    stream_buffer.o(i.prvReadBytesFromBuffer) refers to memcpya.o(.text) for __aeabi_memcpy
+    stream_buffer.o(i.prvReadMessageFromBuffer) refers to stream_buffer.o(i.prvReadBytesFromBuffer) for prvReadBytesFromBuffer
+    stream_buffer.o(i.prvWriteBytesToBuffer) refers to memcpya.o(.text) for __aeabi_memcpy
+    stream_buffer.o(i.prvWriteMessageToBuffer) refers to stream_buffer.o(i.prvWriteBytesToBuffer) for prvWriteBytesToBuffer
+    stream_buffer.o(i.vStreamBufferDelete) refers to heap_4.o(i.vPortFree) for vPortFree
+    stream_buffer.o(i.vStreamBufferDelete) refers to memseta.o(.text) for __aeabi_memclr4
+    stream_buffer.o(i.xStreamBufferBytesAvailable) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferGenericCreate) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    stream_buffer.o(i.xStreamBufferGenericCreate) refers to stream_buffer.o(i.prvInitialiseNewStreamBuffer) for prvInitialiseNewStreamBuffer
+    stream_buffer.o(i.xStreamBufferIsFull) refers to stream_buffer.o(i.xStreamBufferSpacesAvailable) for xStreamBufferSpacesAvailable
+    stream_buffer.o(i.xStreamBufferNextMessageLengthBytes) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferNextMessageLengthBytes) refers to stream_buffer.o(i.prvReadBytesFromBuffer) for prvReadBytesFromBuffer
+    stream_buffer.o(i.xStreamBufferReceive) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    stream_buffer.o(i.xStreamBufferReceive) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.xTaskGenericNotifyStateClear) for xTaskGenericNotifyStateClear
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.xTaskGetCurrentTaskHandle) for xTaskGetCurrentTaskHandle
+    stream_buffer.o(i.xStreamBufferReceive) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.xTaskGenericNotifyWait) for xTaskGenericNotifyWait
+    stream_buffer.o(i.xStreamBufferReceive) refers to stream_buffer.o(i.prvReadMessageFromBuffer) for prvReadMessageFromBuffer
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.xTaskGenericNotify) for xTaskGenericNotify
+    stream_buffer.o(i.xStreamBufferReceive) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    stream_buffer.o(i.xStreamBufferReceiveCompletedFromISR) refers to tasks.o(i.xTaskGenericNotifyFromISR) for xTaskGenericNotifyFromISR
+    stream_buffer.o(i.xStreamBufferReceiveFromISR) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferReceiveFromISR) refers to stream_buffer.o(i.prvReadMessageFromBuffer) for prvReadMessageFromBuffer
+    stream_buffer.o(i.xStreamBufferReceiveFromISR) refers to tasks.o(i.xTaskGenericNotifyFromISR) for xTaskGenericNotifyFromISR
+    stream_buffer.o(i.xStreamBufferReset) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    stream_buffer.o(i.xStreamBufferReset) refers to stream_buffer.o(i.prvInitialiseNewStreamBuffer) for prvInitialiseNewStreamBuffer
+    stream_buffer.o(i.xStreamBufferReset) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.vTaskSetTimeOutState) for vTaskSetTimeOutState
+    stream_buffer.o(i.xStreamBufferSend) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    stream_buffer.o(i.xStreamBufferSend) refers to stream_buffer.o(i.xStreamBufferSpacesAvailable) for xStreamBufferSpacesAvailable
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskGenericNotifyStateClear) for xTaskGenericNotifyStateClear
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskGetCurrentTaskHandle) for xTaskGetCurrentTaskHandle
+    stream_buffer.o(i.xStreamBufferSend) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskGenericNotifyWait) for xTaskGenericNotifyWait
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskCheckForTimeOut) for xTaskCheckForTimeOut
+    stream_buffer.o(i.xStreamBufferSend) refers to stream_buffer.o(i.prvWriteMessageToBuffer) for prvWriteMessageToBuffer
+    stream_buffer.o(i.xStreamBufferSend) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskGenericNotify) for xTaskGenericNotify
+    stream_buffer.o(i.xStreamBufferSend) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    stream_buffer.o(i.xStreamBufferSendCompletedFromISR) refers to tasks.o(i.xTaskGenericNotifyFromISR) for xTaskGenericNotifyFromISR
+    stream_buffer.o(i.xStreamBufferSendFromISR) refers to stream_buffer.o(i.xStreamBufferSpacesAvailable) for xStreamBufferSpacesAvailable
+    stream_buffer.o(i.xStreamBufferSendFromISR) refers to stream_buffer.o(i.prvWriteMessageToBuffer) for prvWriteMessageToBuffer
+    stream_buffer.o(i.xStreamBufferSendFromISR) refers to stream_buffer.o(i.prvBytesInBuffer) for prvBytesInBuffer
+    stream_buffer.o(i.xStreamBufferSendFromISR) refers to tasks.o(i.xTaskGenericNotifyFromISR) for xTaskGenericNotifyFromISR
+    tasks.o(i.eTaskGetState) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.eTaskGetState) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.eTaskGetState) refers to tasks.o(.data) for .data
+    tasks.o(i.eTaskGetState) refers to tasks.o(.bss) for .bss
+    tasks.o(i.pcTaskGetName) refers to tasks.o(.data) for .data
+    tasks.o(i.prvAddCurrentTaskToDelayedList) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.prvAddCurrentTaskToDelayedList) refers to list.o(i.vListInsert) for vListInsert
+    tasks.o(i.prvAddCurrentTaskToDelayedList) refers to tasks.o(.data) for .data
+    tasks.o(i.prvAddCurrentTaskToDelayedList) refers to tasks.o(.bss) for .bss
+    tasks.o(i.prvAddNewTaskToReadyList) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.prvAddNewTaskToReadyList) refers to tasks.o(i.prvInitialiseTaskLists) for prvInitialiseTaskLists
+    tasks.o(i.prvAddNewTaskToReadyList) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.prvAddNewTaskToReadyList) refers to tasks.o(.data) for .data
+    tasks.o(i.prvAddNewTaskToReadyList) refers to tasks.o(.bss) for .bss
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to tasks.o(i.prvDeleteTCB) for prvDeleteTCB
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to tasks.o(.data) for .data
+    tasks.o(i.prvCheckTasksWaitingTermination) refers to tasks.o(.bss) for .bss
+    tasks.o(i.prvDeleteTCB) refers to heap_4.o(i.vPortFree) for vPortFree
+    tasks.o(i.prvIdleTask) refers to tasks.o(i.prvCheckTasksWaitingTermination) for prvCheckTasksWaitingTermination
+    tasks.o(i.prvIdleTask) refers to tasks.o(.bss) for .bss
+    tasks.o(i.prvInitialiseNewTask) refers to memseta.o(.text) for __aeabi_memset
+    tasks.o(i.prvInitialiseNewTask) refers to list.o(i.vListInitialiseItem) for vListInitialiseItem
+    tasks.o(i.prvInitialiseNewTask) refers to port.o(i.pxPortInitialiseStack) for pxPortInitialiseStack
+    tasks.o(i.prvInitialiseTaskLists) refers to list.o(i.vListInitialise) for vListInitialise
+    tasks.o(i.prvInitialiseTaskLists) refers to tasks.o(.bss) for .bss
+    tasks.o(i.prvInitialiseTaskLists) refers to tasks.o(.data) for .data
+    tasks.o(i.prvListTasksWithinSingleList) refers to tasks.o(i.vTaskGetInfo) for vTaskGetInfo
+    tasks.o(i.prvResetNextTaskUnblockTime) refers to tasks.o(.data) for .data
+    tasks.o(i.prvTaskIsTaskSuspended) refers to tasks.o(.bss) for .bss
+    tasks.o(i.pvTaskIncrementMutexHeldCount) refers to tasks.o(.data) for .data
+    tasks.o(i.ulTaskGenericNotifyTake) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.ulTaskGenericNotifyTake) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.ulTaskGenericNotifyTake) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.ulTaskGenericNotifyTake) refers to tasks.o(.data) for .data
+    tasks.o(i.ulTaskGenericNotifyValueClear) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.ulTaskGenericNotifyValueClear) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.ulTaskGenericNotifyValueClear) refers to tasks.o(.data) for .data
+    tasks.o(i.uxTaskGetNumberOfTasks) refers to tasks.o(.data) for .data
+    tasks.o(i.uxTaskGetSystemState) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    tasks.o(i.uxTaskGetSystemState) refers to tasks.o(i.prvListTasksWithinSingleList) for prvListTasksWithinSingleList
+    tasks.o(i.uxTaskGetSystemState) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    tasks.o(i.uxTaskGetSystemState) refers to tasks.o(.data) for .data
+    tasks.o(i.uxTaskGetSystemState) refers to tasks.o(.bss) for .bss
+    tasks.o(i.uxTaskPriorityGet) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.uxTaskPriorityGet) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.uxTaskPriorityGet) refers to tasks.o(.data) for .data
+    tasks.o(i.uxTaskPriorityGetFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    tasks.o(i.uxTaskPriorityGetFromISR) refers to tasks.o(.data) for .data
+    tasks.o(i.uxTaskResetEventItemValue) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskDelay) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    tasks.o(i.vTaskDelay) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.vTaskDelay) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    tasks.o(i.vTaskDelay) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskDelete) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.vTaskDelete) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.vTaskDelete) refers to list.o(i.vListInsertEnd) for vListInsertEnd
+    tasks.o(i.vTaskDelete) refers to tasks.o(i.prvResetNextTaskUnblockTime) for prvResetNextTaskUnblockTime
+    tasks.o(i.vTaskDelete) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.vTaskDelete) refers to tasks.o(i.prvDeleteTCB) for prvDeleteTCB
+    tasks.o(i.vTaskDelete) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskDelete) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskEndScheduler) refers to port.o(i.vPortEndScheduler) for vPortEndScheduler
+    tasks.o(i.vTaskEndScheduler) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskGenericNotifyGiveFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    tasks.o(i.vTaskGenericNotifyGiveFromISR) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskGenericNotifyGiveFromISR) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskGetInfo) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    tasks.o(i.vTaskGetInfo) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    tasks.o(i.vTaskGetInfo) refers to tasks.o(i.eTaskGetState) for eTaskGetState
+    tasks.o(i.vTaskGetInfo) refers to tasks.o(i.prvTaskCheckFreeStackSpace) for prvTaskCheckFreeStackSpace
+    tasks.o(i.vTaskGetInfo) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskInternalSetTimeOutState) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskMissedYield) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPlaceOnEventList) refers to list.o(i.vListInsert) for vListInsert
+    tasks.o(i.vTaskPlaceOnEventList) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.vTaskPlaceOnEventList) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPlaceOnEventListRestricted) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.vTaskPlaceOnEventListRestricted) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPlaceOnUnorderedEventList) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.vTaskPlaceOnUnorderedEventList) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPriorityDisinheritAfterTimeout) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.vTaskPriorityDisinheritAfterTimeout) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPriorityDisinheritAfterTimeout) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskPrioritySet) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.vTaskPrioritySet) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.vTaskPrioritySet) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.vTaskPrioritySet) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskPrioritySet) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskRemoveFromUnorderedEventList) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskRemoveFromUnorderedEventList) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskResume) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.vTaskResume) refers to tasks.o(i.prvTaskIsTaskSuspended) for prvTaskIsTaskSuspended
+    tasks.o(i.vTaskResume) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.vTaskResume) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.vTaskResume) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskResume) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskSetTimeOutState) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.vTaskSetTimeOutState) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.vTaskSetTimeOutState) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskStartScheduler) refers to tasks.o(i.xTaskCreate) for xTaskCreate
+    tasks.o(i.vTaskStartScheduler) refers to timers.o(i.xTimerCreateTimerTask) for xTimerCreateTimerTask
+    tasks.o(i.vTaskStartScheduler) refers to port.o(i.xPortStartScheduler) for xPortStartScheduler
+    tasks.o(i.vTaskStartScheduler) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskStartScheduler) refers to tasks.o(i.prvIdleTask) for prvIdleTask
+    tasks.o(i.vTaskSuspend) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.vTaskSuspend) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.vTaskSuspend) refers to list.o(i.vListInsertEnd) for vListInsertEnd
+    tasks.o(i.vTaskSuspend) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.vTaskSuspend) refers to tasks.o(i.prvResetNextTaskUnblockTime) for prvResetNextTaskUnblockTime
+    tasks.o(i.vTaskSuspend) refers to tasks.o(i.vTaskSwitchContext) for vTaskSwitchContext
+    tasks.o(i.vTaskSuspend) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskSuspend) refers to tasks.o(.bss) for .bss
+    tasks.o(i.vTaskSuspendAll) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskSwitchContext) refers to tasks.o(.data) for .data
+    tasks.o(i.vTaskSwitchContext) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskCatchUpTicks) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    tasks.o(i.xTaskCatchUpTicks) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskCatchUpTicks) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskCatchUpTicks) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    tasks.o(i.xTaskCatchUpTicks) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskCheckForTimeOut) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskCheckForTimeOut) refers to tasks.o(i.vTaskInternalSetTimeOutState) for vTaskInternalSetTimeOutState
+    tasks.o(i.xTaskCheckForTimeOut) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskCheckForTimeOut) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskCreate) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    tasks.o(i.xTaskCreate) refers to memseta.o(.text) for __aeabi_memclr4
+    tasks.o(i.xTaskCreate) refers to heap_4.o(i.vPortFree) for vPortFree
+    tasks.o(i.xTaskCreate) refers to tasks.o(i.prvInitialiseNewTask) for prvInitialiseNewTask
+    tasks.o(i.xTaskCreate) refers to tasks.o(i.prvAddNewTaskToReadyList) for prvAddNewTaskToReadyList
+    tasks.o(i.xTaskDelayUntil) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    tasks.o(i.xTaskDelayUntil) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.xTaskDelayUntil) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    tasks.o(i.xTaskDelayUntil) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGenericNotify) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskGenericNotify) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskGenericNotify) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGenericNotify) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskGenericNotifyFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    tasks.o(i.xTaskGenericNotifyFromISR) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGenericNotifyFromISR) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskGenericNotifyStateClear) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskGenericNotifyStateClear) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskGenericNotifyStateClear) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGenericNotifyWait) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskGenericNotifyWait) refers to tasks.o(i.prvAddCurrentTaskToDelayedList) for prvAddCurrentTaskToDelayedList
+    tasks.o(i.xTaskGenericNotifyWait) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskGenericNotifyWait) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGetCurrentTaskHandle) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGetSchedulerState) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGetTickCount) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskGetTickCountFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    tasks.o(i.xTaskGetTickCountFromISR) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskIncrementTick) refers to tasks.o(i.prvResetNextTaskUnblockTime) for prvResetNextTaskUnblockTime
+    tasks.o(i.xTaskIncrementTick) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskIncrementTick) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskPriorityDisinherit) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.xTaskPriorityDisinherit) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskPriorityDisinherit) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskPriorityInherit) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.xTaskPriorityInherit) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskPriorityInherit) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskRemoveFromEventList) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskRemoveFromEventList) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskResumeAll) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    tasks.o(i.xTaskResumeAll) refers to tasks.o(i.prvResetNextTaskUnblockTime) for prvResetNextTaskUnblockTime
+    tasks.o(i.xTaskResumeAll) refers to tasks.o(i.xTaskIncrementTick) for xTaskIncrementTick
+    tasks.o(i.xTaskResumeAll) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    tasks.o(i.xTaskResumeAll) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskResumeAll) refers to tasks.o(.bss) for .bss
+    tasks.o(i.xTaskResumeFromISR) refers to port.o(i.vPortValidateInterruptPriority) for vPortValidateInterruptPriority
+    tasks.o(i.xTaskResumeFromISR) refers to tasks.o(i.prvTaskIsTaskSuspended) for prvTaskIsTaskSuspended
+    tasks.o(i.xTaskResumeFromISR) refers to list.o(i.vListInsertEnd) for vListInsertEnd
+    tasks.o(i.xTaskResumeFromISR) refers to list.o(i.uxListRemove) for uxListRemove
+    tasks.o(i.xTaskResumeFromISR) refers to tasks.o(.data) for .data
+    tasks.o(i.xTaskResumeFromISR) refers to tasks.o(.bss) for .bss
+    timers.o(i.prvCheckForValidListAndQueue) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.prvCheckForValidListAndQueue) refers to list.o(i.vListInitialise) for vListInitialise
+    timers.o(i.prvCheckForValidListAndQueue) refers to queue.o(i.xQueueGenericCreate) for xQueueGenericCreate
+    timers.o(i.prvCheckForValidListAndQueue) refers to queue.o(i.vQueueAddToRegistry) for vQueueAddToRegistry
+    timers.o(i.prvCheckForValidListAndQueue) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    timers.o(i.prvCheckForValidListAndQueue) refers to timers.o(.data) for .data
+    timers.o(i.prvCheckForValidListAndQueue) refers to timers.o(.bss) for .bss
+    timers.o(i.prvGetNextExpireTime) refers to timers.o(.data) for .data
+    timers.o(i.prvInitialiseNewTimer) refers to timers.o(i.prvCheckForValidListAndQueue) for prvCheckForValidListAndQueue
+    timers.o(i.prvInitialiseNewTimer) refers to list.o(i.vListInitialiseItem) for vListInitialiseItem
+    timers.o(i.prvInsertTimerInActiveList) refers to list.o(i.vListInsert) for vListInsert
+    timers.o(i.prvInsertTimerInActiveList) refers to timers.o(.data) for .data
+    timers.o(i.prvProcessExpiredTimer) refers to list.o(i.uxListRemove) for uxListRemove
+    timers.o(i.prvProcessExpiredTimer) refers to timers.o(i.prvReloadTimer) for prvReloadTimer
+    timers.o(i.prvProcessExpiredTimer) refers to timers.o(.data) for .data
+    timers.o(i.prvProcessReceivedCommands) refers to list.o(i.uxListRemove) for uxListRemove
+    timers.o(i.prvProcessReceivedCommands) refers to timers.o(i.prvSampleTimeNow) for prvSampleTimeNow
+    timers.o(i.prvProcessReceivedCommands) refers to timers.o(i.prvInsertTimerInActiveList) for prvInsertTimerInActiveList
+    timers.o(i.prvProcessReceivedCommands) refers to timers.o(i.prvReloadTimer) for prvReloadTimer
+    timers.o(i.prvProcessReceivedCommands) refers to heap_4.o(i.vPortFree) for vPortFree
+    timers.o(i.prvProcessReceivedCommands) refers to queue.o(i.xQueueReceive) for xQueueReceive
+    timers.o(i.prvProcessReceivedCommands) refers to timers.o(.data) for .data
+    timers.o(i.prvProcessTimerOrBlockTask) refers to tasks.o(i.vTaskSuspendAll) for vTaskSuspendAll
+    timers.o(i.prvProcessTimerOrBlockTask) refers to timers.o(i.prvSampleTimeNow) for prvSampleTimeNow
+    timers.o(i.prvProcessTimerOrBlockTask) refers to tasks.o(i.xTaskResumeAll) for xTaskResumeAll
+    timers.o(i.prvProcessTimerOrBlockTask) refers to timers.o(i.prvProcessExpiredTimer) for prvProcessExpiredTimer
+    timers.o(i.prvProcessTimerOrBlockTask) refers to queue.o(i.vQueueWaitForMessageRestricted) for vQueueWaitForMessageRestricted
+    timers.o(i.prvProcessTimerOrBlockTask) refers to timers.o(.data) for .data
+    timers.o(i.prvReloadTimer) refers to timers.o(i.prvInsertTimerInActiveList) for prvInsertTimerInActiveList
+    timers.o(i.prvSampleTimeNow) refers to tasks.o(i.xTaskGetTickCount) for xTaskGetTickCount
+    timers.o(i.prvSampleTimeNow) refers to timers.o(i.prvSwitchTimerLists) for prvSwitchTimerLists
+    timers.o(i.prvSampleTimeNow) refers to timers.o(.data) for .data
+    timers.o(i.prvSwitchTimerLists) refers to timers.o(i.prvProcessExpiredTimer) for prvProcessExpiredTimer
+    timers.o(i.prvSwitchTimerLists) refers to timers.o(.data) for .data
+    timers.o(i.prvTimerTask) refers to timers.o(i.prvGetNextExpireTime) for prvGetNextExpireTime
+    timers.o(i.prvTimerTask) refers to timers.o(i.prvProcessTimerOrBlockTask) for prvProcessTimerOrBlockTask
+    timers.o(i.prvTimerTask) refers to timers.o(i.prvProcessReceivedCommands) for prvProcessReceivedCommands
+    timers.o(i.pvTimerGetTimerID) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.pvTimerGetTimerID) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    timers.o(i.uxTimerGetReloadMode) refers to timers.o(i.xTimerGetReloadMode) for xTimerGetReloadMode
+    timers.o(i.vTimerSetReloadMode) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.vTimerSetReloadMode) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    timers.o(i.vTimerSetTimerID) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.vTimerSetTimerID) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    timers.o(i.xTimerCreate) refers to heap_4.o(i.pvPortMalloc) for pvPortMalloc
+    timers.o(i.xTimerCreate) refers to timers.o(i.prvInitialiseNewTimer) for prvInitialiseNewTimer
+    timers.o(i.xTimerCreateTimerTask) refers to timers.o(i.prvCheckForValidListAndQueue) for prvCheckForValidListAndQueue
+    timers.o(i.xTimerCreateTimerTask) refers to tasks.o(i.xTaskCreate) for xTaskCreate
+    timers.o(i.xTimerCreateTimerTask) refers to timers.o(.data) for .data
+    timers.o(i.xTimerCreateTimerTask) refers to timers.o(i.prvTimerTask) for prvTimerTask
+    timers.o(i.xTimerGenericCommand) refers to tasks.o(i.xTaskGetSchedulerState) for xTaskGetSchedulerState
+    timers.o(i.xTimerGenericCommand) refers to queue.o(i.xQueueGenericSend) for xQueueGenericSend
+    timers.o(i.xTimerGenericCommand) refers to queue.o(i.xQueueGenericSendFromISR) for xQueueGenericSendFromISR
+    timers.o(i.xTimerGenericCommand) refers to timers.o(.data) for .data
+    timers.o(i.xTimerGetReloadMode) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.xTimerGetReloadMode) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    timers.o(i.xTimerGetTimerDaemonTaskHandle) refers to timers.o(.data) for .data
+    timers.o(i.xTimerIsTimerActive) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    timers.o(i.xTimerIsTimerActive) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    rtostop.o(i.creat_task) refers to printf3.o(i.__0printf$3) for __2printf
+    rtostop.o(i.creat_task) refers to tasks.o(i.xTaskCreate) for xTaskCreate
+    rtostop.o(i.creat_task) refers to port.o(i.vPortEnterCritical) for vPortEnterCritical
+    rtostop.o(i.creat_task) refers to port.o(i.vPortExitCritical) for vPortExitCritical
+    rtostop.o(i.creat_task) refers to tasks.o(i.vTaskDelay) for vTaskDelay
+    rtostop.o(i.creat_task) refers to tasks.o(i.vTaskDelete) for vTaskDelete
+    rtostop.o(i.creat_task) refers to rtostop.o(.constdata) for .constdata
+    rtostop.o(i.creat_task) refers to rtostop.o(.data) for .data
+    rtostop.o(i.creat_task) refers to rtostop.o(i.task1_task) for task1_task
+    rtostop.o(i.creat_task) refers to rtostop.o(i.task2_task) for task2_task
+    rtostop.o(i.creat_task) refers to rtostop.o(i.led_blink) for led_blink
+    rtostop.o(i.led_blink) refers to stm32f4xx_gpio_1.o(i.GPIO_ResetBits) for GPIO_ResetBits
+    rtostop.o(i.led_blink) refers to tasks.o(i.vTaskDelay) for vTaskDelay
+    rtostop.o(i.led_blink) refers to stm32f4xx_gpio_1.o(i.GPIO_SetBits) for GPIO_SetBits
+    rtostop.o(i.rtos_init) refers to misc_1.o(i.NVIC_PriorityGroupConfig) for NVIC_PriorityGroupConfig
+    rtostop.o(i.rtos_init) refers to printf3.o(i.__0printf$3) for __2printf
+    rtostop.o(i.rtos_init) refers to tasks.o(i.xTaskCreate) for xTaskCreate
+    rtostop.o(i.rtos_init) refers to tasks.o(i.vTaskStartScheduler) for vTaskStartScheduler
+    rtostop.o(i.rtos_init) refers to rtostop.o(.data) for .data
+    rtostop.o(i.rtos_init) refers to rtostop.o(i.creat_task) for creat_task
+    rtostop.o(i.task1_task) refers to printf3.o(i.__0printf$3) for __2printf
+    rtostop.o(i.task1_task) refers to tasks.o(i.vTaskDelay) for vTaskDelay
+    rtostop.o(i.task2_task) refers to printf3.o(i.__0printf$3) for __2printf
+    rtostop.o(i.task2_task) refers to tasks.o(i.vTaskDelay) for vTaskDelay
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry10a.o(.ARM.Collect$$$$0000000F) for __rt_final_cpp
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry11a.o(.ARM.Collect$$$$00000011) for __rt_final_exit
     entry.o(.ARM.Collect$$$$00000000) refers (Special) to entry12b.o(.ARM.Collect$$$$0000000E) for __rt_lib_shutdown_fini
@@ -526,7 +997,6 @@ Removing Unused input sections from the image.
     Removing misc_1.o(.revsh_text), (4 bytes).
     Removing misc_1.o(.rrx_text), (6 bytes).
     Removing misc_1.o(i.NVIC_Init), (104 bytes).
-    Removing misc_1.o(i.NVIC_PriorityGroupConfig), (20 bytes).
     Removing misc_1.o(i.NVIC_SetVectorTable), (20 bytes).
     Removing misc_1.o(i.NVIC_SystemLPConfig), (28 bytes).
     Removing stm32f4xx_adc_1.o(.rev16_text), (4 bytes).
@@ -1311,6 +1781,8 @@ Removing Unused input sections from the image.
     Removing stm32f4xx_it.o(.rev16_text), (4 bytes).
     Removing stm32f4xx_it.o(.revsh_text), (4 bytes).
     Removing stm32f4xx_it.o(.rrx_text), (6 bytes).
+    Removing stm32f4xx_it.o(i.TimingDelay_Decrement), (20 bytes).
+    Removing stm32f4xx_it.o(.data), (4 bytes).
     Removing system_stm32f4xx.o(.rev16_text), (4 bytes).
     Removing system_stm32f4xx.o(.revsh_text), (4 bytes).
     Removing system_stm32f4xx.o(.rrx_text), (6 bytes).
@@ -1332,9 +1804,160 @@ Removing Unused input sections from the image.
     Removing delay.o(.rev16_text), (4 bytes).
     Removing delay.o(.revsh_text), (4 bytes).
     Removing delay.o(.rrx_text), (6 bytes).
+    Removing delay.o(i.delay_ms), (140 bytes).
     Removing delay.o(i.delay_us), (104 bytes).
     Removing delay.o(.data), (4 bytes).
     Removing delay.o(.data), (2 bytes).
+    Removing heap_4.o(.rev16_text), (4 bytes).
+    Removing heap_4.o(.revsh_text), (4 bytes).
+    Removing heap_4.o(.rrx_text), (6 bytes).
+    Removing heap_4.o(i.pvPortCalloc), (42 bytes).
+    Removing heap_4.o(i.vPortGetHeapStats), (112 bytes).
+    Removing heap_4.o(i.vPortInitialiseBlocks), (2 bytes).
+    Removing heap_4.o(i.xPortGetFreeHeapSize), (12 bytes).
+    Removing heap_4.o(i.xPortGetMinimumEverFreeHeapSize), (12 bytes).
+    Removing port.o(.rev16_text), (4 bytes).
+    Removing port.o(.revsh_text), (4 bytes).
+    Removing port.o(.rrx_text), (6 bytes).
+    Removing port.o(i.vPortEndScheduler), (32 bytes).
+    Removing port.o(i.vPortValidateInterruptPriority), (84 bytes).
+    Removing croutine.o(.rev16_text), (4 bytes).
+    Removing croutine.o(.revsh_text), (4 bytes).
+    Removing croutine.o(.rrx_text), (6 bytes).
+    Removing event_groups.o(.rev16_text), (4 bytes).
+    Removing event_groups.o(.revsh_text), (4 bytes).
+    Removing event_groups.o(.rrx_text), (6 bytes).
+    Removing event_groups.o(i.prvTestWaitCondition), (24 bytes).
+    Removing event_groups.o(i.uxEventGroupGetNumber), (12 bytes).
+    Removing event_groups.o(i.vEventGroupClearBitsCallback), (4 bytes).
+    Removing event_groups.o(i.vEventGroupDelete), (90 bytes).
+    Removing event_groups.o(i.vEventGroupSetBitsCallback), (4 bytes).
+    Removing event_groups.o(i.vEventGroupSetNumber), (4 bytes).
+    Removing event_groups.o(i.xEventGroupClearBits), (66 bytes).
+    Removing event_groups.o(i.xEventGroupCreate), (26 bytes).
+    Removing event_groups.o(i.xEventGroupGetBitsFromISR), (26 bytes).
+    Removing event_groups.o(i.xEventGroupSetBits), (160 bytes).
+    Removing event_groups.o(i.xEventGroupSync), (200 bytes).
+    Removing event_groups.o(i.xEventGroupWaitBits), (264 bytes).
+    Removing list.o(.rev16_text), (4 bytes).
+    Removing list.o(.revsh_text), (4 bytes).
+    Removing list.o(.rrx_text), (6 bytes).
+    Removing queue.o(.rev16_text), (4 bytes).
+    Removing queue.o(.revsh_text), (4 bytes).
+    Removing queue.o(.rrx_text), (6 bytes).
+    Removing queue.o(i.pcQueueGetName), (60 bytes).
+    Removing queue.o(i.prvCopyDataToQueue), (110 bytes).
+    Removing queue.o(i.prvGetDisinheritPriorityAfterTimeout), (20 bytes).
+    Removing queue.o(i.prvInitialiseMutex), (24 bytes).
+    Removing queue.o(i.prvIsQueueFull), (30 bytes).
+    Removing queue.o(i.ucQueueGetQueueType), (6 bytes).
+    Removing queue.o(i.uxQueueGetQueueNumber), (4 bytes).
+    Removing queue.o(i.uxQueueMessagesWaiting), (38 bytes).
+    Removing queue.o(i.uxQueueMessagesWaitingFromISR), (24 bytes).
+    Removing queue.o(i.uxQueueSpacesAvailable), (42 bytes).
+    Removing queue.o(i.vQueueDelete), (40 bytes).
+    Removing queue.o(i.vQueueSetQueueNumber), (4 bytes).
+    Removing queue.o(i.vQueueUnregisterQueue), (60 bytes).
+    Removing queue.o(i.xQueueCreateCountingSemaphore), (44 bytes).
+    Removing queue.o(i.xQueueCreateMutex), (24 bytes).
+    Removing queue.o(i.xQueueGenericSend), (356 bytes).
+    Removing queue.o(i.xQueueGenericSendFromISR), (220 bytes).
+    Removing queue.o(i.xQueueGiveFromISR), (190 bytes).
+    Removing queue.o(i.xQueueGiveMutexRecursive), (64 bytes).
+    Removing queue.o(i.xQueueIsQueueEmptyFromISR), (32 bytes).
+    Removing queue.o(i.xQueueIsQueueFullFromISR), (36 bytes).
+    Removing queue.o(i.xQueuePeek), (316 bytes).
+    Removing queue.o(i.xQueuePeekFromISR), (124 bytes).
+    Removing queue.o(i.xQueueReceiveFromISR), (184 bytes).
+    Removing queue.o(i.xQueueSemaphoreTake), (356 bytes).
+    Removing queue.o(i.xQueueTakeMutexRecursive), (66 bytes).
+    Removing stream_buffer.o(.rev16_text), (4 bytes).
+    Removing stream_buffer.o(.revsh_text), (4 bytes).
+    Removing stream_buffer.o(.rrx_text), (6 bytes).
+    Removing stream_buffer.o(i.prvBytesInBuffer), (18 bytes).
+    Removing stream_buffer.o(i.prvInitialiseNewStreamBuffer), (68 bytes).
+    Removing stream_buffer.o(i.prvReadBytesFromBuffer), (126 bytes).
+    Removing stream_buffer.o(i.prvReadMessageFromBuffer), (72 bytes).
+    Removing stream_buffer.o(i.prvWriteBytesToBuffer), (128 bytes).
+    Removing stream_buffer.o(i.prvWriteMessageToBuffer), (70 bytes).
+    Removing stream_buffer.o(i.ucStreamBufferGetStreamBufferType), (8 bytes).
+    Removing stream_buffer.o(i.uxStreamBufferGetStreamBufferNumber), (4 bytes).
+    Removing stream_buffer.o(i.vStreamBufferDelete), (36 bytes).
+    Removing stream_buffer.o(i.vStreamBufferSetStreamBufferNumber), (4 bytes).
+    Removing stream_buffer.o(i.xStreamBufferBytesAvailable), (24 bytes).
+    Removing stream_buffer.o(i.xStreamBufferGenericCreate), (136 bytes).
+    Removing stream_buffer.o(i.xStreamBufferIsEmpty), (36 bytes).
+    Removing stream_buffer.o(i.xStreamBufferIsFull), (50 bytes).
+    Removing stream_buffer.o(i.xStreamBufferNextMessageLengthBytes), (82 bytes).
+    Removing stream_buffer.o(i.xStreamBufferReceive), (234 bytes).
+    Removing stream_buffer.o(i.xStreamBufferReceiveCompletedFromISR), (78 bytes).
+    Removing stream_buffer.o(i.xStreamBufferReceiveFromISR), (150 bytes).
+    Removing stream_buffer.o(i.xStreamBufferReset), (80 bytes).
+    Removing stream_buffer.o(i.xStreamBufferSend), (280 bytes).
+    Removing stream_buffer.o(i.xStreamBufferSendCompletedFromISR), (78 bytes).
+    Removing stream_buffer.o(i.xStreamBufferSendFromISR), (158 bytes).
+    Removing stream_buffer.o(i.xStreamBufferSetTriggerLevel), (42 bytes).
+    Removing stream_buffer.o(i.xStreamBufferSpacesAvailable), (52 bytes).
+    Removing tasks.o(.rev16_text), (4 bytes).
+    Removing tasks.o(.revsh_text), (4 bytes).
+    Removing tasks.o(.rrx_text), (6 bytes).
+    Removing tasks.o(i.eTaskGetState), (132 bytes).
+    Removing tasks.o(i.pcTaskGetName), (36 bytes).
+    Removing tasks.o(i.prvListTasksWithinSingleList), (92 bytes).
+    Removing tasks.o(i.prvTaskCheckFreeStackSpace), (20 bytes).
+    Removing tasks.o(i.prvTaskIsTaskSuspended), (56 bytes).
+    Removing tasks.o(i.pvTaskIncrementMutexHeldCount), (24 bytes).
+    Removing tasks.o(i.ulTaskGenericNotifyTake), (124 bytes).
+    Removing tasks.o(i.ulTaskGenericNotifyValueClear), (48 bytes).
+    Removing tasks.o(i.uxTaskGetNumberOfTasks), (12 bytes).
+    Removing tasks.o(i.uxTaskGetSystemState), (168 bytes).
+    Removing tasks.o(i.uxTaskGetTaskNumber), (12 bytes).
+    Removing tasks.o(i.uxTaskPriorityGet), (28 bytes).
+    Removing tasks.o(i.uxTaskPriorityGetFromISR), (44 bytes).
+    Removing tasks.o(i.uxTaskResetEventItemValue), (24 bytes).
+    Removing tasks.o(i.vTaskEndScheduler), (28 bytes).
+    Removing tasks.o(i.vTaskGenericNotifyGiveFromISR), (280 bytes).
+    Removing tasks.o(i.vTaskGetInfo), (116 bytes).
+    Removing tasks.o(i.vTaskPlaceOnUnorderedEventList), (104 bytes).
+    Removing tasks.o(i.vTaskPriorityDisinheritAfterTimeout), (180 bytes).
+    Removing tasks.o(i.vTaskPrioritySet), (216 bytes).
+    Removing tasks.o(i.vTaskRemoveFromUnorderedEventList), (204 bytes).
+    Removing tasks.o(i.vTaskResume), (164 bytes).
+    Removing tasks.o(i.vTaskSetTaskNumber), (8 bytes).
+    Removing tasks.o(i.vTaskSetTimeOutState), (52 bytes).
+    Removing tasks.o(i.vTaskSuspend), (168 bytes).
+    Removing tasks.o(i.xTaskCatchUpTicks), (60 bytes).
+    Removing tasks.o(i.xTaskDelayUntil), (152 bytes).
+    Removing tasks.o(i.xTaskGenericNotify), (312 bytes).
+    Removing tasks.o(i.xTaskGenericNotifyFromISR), (364 bytes).
+    Removing tasks.o(i.xTaskGenericNotifyStateClear), (68 bytes).
+    Removing tasks.o(i.xTaskGenericNotifyWait), (164 bytes).
+    Removing tasks.o(i.xTaskGetCurrentTaskHandle), (12 bytes).
+    Removing tasks.o(i.xTaskGetTickCountFromISR), (16 bytes).
+    Removing tasks.o(i.xTaskPriorityDisinherit), (164 bytes).
+    Removing tasks.o(i.xTaskPriorityInherit), (164 bytes).
+    Removing tasks.o(i.xTaskResumeFromISR), (184 bytes).
+    Removing timers.o(.rev16_text), (4 bytes).
+    Removing timers.o(.revsh_text), (4 bytes).
+    Removing timers.o(.rrx_text), (6 bytes).
+    Removing timers.o(i.pcTimerGetName), (24 bytes).
+    Removing timers.o(i.prvInitialiseNewTimer), (76 bytes).
+    Removing timers.o(i.pvTimerGetTimerID), (38 bytes).
+    Removing timers.o(i.uxTimerGetReloadMode), (4 bytes).
+    Removing timers.o(i.uxTimerGetTimerNumber), (4 bytes).
+    Removing timers.o(i.vTimerSetReloadMode), (62 bytes).
+    Removing timers.o(i.vTimerSetTimerID), (40 bytes).
+    Removing timers.o(i.vTimerSetTimerNumber), (4 bytes).
+    Removing timers.o(i.xTimerCreate), (52 bytes).
+    Removing timers.o(i.xTimerGenericCommand), (104 bytes).
+    Removing timers.o(i.xTimerGetExpiryTime), (24 bytes).
+    Removing timers.o(i.xTimerGetPeriod), (24 bytes).
+    Removing timers.o(i.xTimerGetReloadMode), (50 bytes).
+    Removing timers.o(i.xTimerGetTimerDaemonTaskHandle), (32 bytes).
+    Removing timers.o(i.xTimerIsTimerActive), (50 bytes).
+    Removing rtostop.o(.rev16_text), (4 bytes).
+    Removing rtostop.o(.revsh_text), (4 bytes).
+    Removing rtostop.o(.rrx_text), (6 bytes).
     Removing dadd.o(.text), (334 bytes).
     Removing dmul.o(.text), (228 bytes).
     Removing ddiv.o(.text), (222 bytes).
@@ -1342,7 +1965,7 @@ Removing Unused input sections from the image.
     Removing cdrcmple.o(.text), (48 bytes).
     Removing depilogue.o(.text), (186 bytes).
 
-819 unused section(s) (total 30582 bytes) removed from the image.
+971 unused section(s) (total 41118 bytes) removed from the image.
 
 ==============================================================================
 
@@ -1352,38 +1975,43 @@ Image Symbol Table
 
     Symbol Name                              Value     Ov Type        Size  Object(Section)
 
-    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
     ../clib/microlib/division.c              0x00000000   Number         0  uldiv.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/division.c              0x00000000   Number         0  uidiv.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8b.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry12a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry8a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
-    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry5.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry10b.o ABSOLUTE
     ../clib/microlib/init/entry.s            0x00000000   Number         0  entry7a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry11a.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry9b.o ABSOLUTE
+    ../clib/microlib/init/entry.s            0x00000000   Number         0  entry2.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llshl.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llushr.o ABSOLUTE
     ../clib/microlib/longlong.c              0x00000000   Number         0  llsshr.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf0.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf6.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
-    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf7.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf8.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf1.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfa.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf2.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf3.o ABSOLUTE
     ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf4.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printf5.o ABSOLUTE
+    ../clib/microlib/printf/printf.c         0x00000000   Number         0  printfb.o ABSOLUTE
+    ../clib/microlib/printf/stubs.s          0x00000000   Number         0  stubs.o ABSOLUTE
     ../clib/microlib/stdio/streams.c         0x00000000   Number         0  stdout.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpya.o ABSOLUTE
+    ../clib/microlib/string/memcpy.c         0x00000000   Number         0  memcpyb.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memseta.o ABSOLUTE
+    ../clib/microlib/string/memset.c         0x00000000   Number         0  memset.o ABSOLUTE
     ../clib/microlib/stubs.s                 0x00000000   Number         0  iusefp.o ABSOLUTE
     ../fplib/microlib/fpadd.c                0x00000000   Number         0  dadd.o ABSOLUTE
     ../fplib/microlib/fpdiv.c                0x00000000   Number         0  ddiv.o ABSOLUTE
@@ -1391,6 +2019,16 @@ Image Symbol Table
     ../fplib/microlib/fpfix.c                0x00000000   Number         0  dfixul.o ABSOLUTE
     ../fplib/microlib/fpmul.c                0x00000000   Number         0  dmul.o ABSOLUTE
     ..\Hardware\delay\delay.c                0x00000000   Number         0  delay.o ABSOLUTE
+    ..\Hardware\freertos\port\MemMang\heap_4.c 0x00000000   Number         0  heap_4.o ABSOLUTE
+    ..\Hardware\freertos\port\RVDS\ARM_CM4F\port.c 0x00000000   Number         0  port.o ABSOLUTE
+    ..\Hardware\freertos\rtosTop.c           0x00000000   Number         0  rtostop.o ABSOLUTE
+    ..\Hardware\freertos\src\croutine.c      0x00000000   Number         0  croutine.o ABSOLUTE
+    ..\Hardware\freertos\src\event_groups.c  0x00000000   Number         0  event_groups.o ABSOLUTE
+    ..\Hardware\freertos\src\list.c          0x00000000   Number         0  list.o ABSOLUTE
+    ..\Hardware\freertos\src\queue.c         0x00000000   Number         0  queue.o ABSOLUTE
+    ..\Hardware\freertos\src\stream_buffer.c 0x00000000   Number         0  stream_buffer.o ABSOLUTE
+    ..\Hardware\freertos\src\tasks.c         0x00000000   Number         0  tasks.o ABSOLUTE
+    ..\Hardware\freertos\src\timers.c        0x00000000   Number         0  timers.o ABSOLUTE
     ..\Hardware\led\led.c                    0x00000000   Number         0  led.o ABSOLUTE
     ..\Hardware\uart\uart.c                  0x00000000   Number         0  uart.o ABSOLUTE
     ..\Periph\src\misc.c                     0x00000000   Number         0  misc_1.o ABSOLUTE
@@ -1438,6 +2076,16 @@ Image Symbol Table
     ..\Sys\stm32f4xx_it.c                    0x00000000   Number         0  stm32f4xx_it.o ABSOLUTE
     ..\Sys\system_stm32f4xx.c                0x00000000   Number         0  system_stm32f4xx.o ABSOLUTE
     ..\\Hardware\\delay\\delay.c             0x00000000   Number         0  delay.o ABSOLUTE
+    ..\\Hardware\\freertos\\port\\MemMang\\heap_4.c 0x00000000   Number         0  heap_4.o ABSOLUTE
+    ..\\Hardware\\freertos\\port\\RVDS\\ARM_CM4F\\port.c 0x00000000   Number         0  port.o ABSOLUTE
+    ..\\Hardware\\freertos\\rtosTop.c        0x00000000   Number         0  rtostop.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\croutine.c  0x00000000   Number         0  croutine.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\event_groups.c 0x00000000   Number         0  event_groups.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\list.c      0x00000000   Number         0  list.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\queue.c     0x00000000   Number         0  queue.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\stream_buffer.c 0x00000000   Number         0  stream_buffer.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\tasks.c     0x00000000   Number         0  tasks.o ABSOLUTE
+    ..\\Hardware\\freertos\\src\\timers.c    0x00000000   Number         0  timers.o ABSOLUTE
     ..\\Hardware\\led\\led.c                 0x00000000   Number         0  led.o ABSOLUTE
     ..\\Hardware\\uart\\uart.c               0x00000000   Number         0  uart.o ABSOLUTE
     ..\\Periph\\src\\misc.c                  0x00000000   Number         0  misc_1.o ABSOLUTE
@@ -1501,51 +2149,190 @@ Image Symbol Table
     .ARM.Collect$$$$00000011                 0x080001a8   Section        0  entry11a.o(.ARM.Collect$$$$00000011)
     .ARM.Collect$$$$00002712                 0x080001a8   Section        4  entry2.o(.ARM.Collect$$$$00002712)
     __lit__00000000                          0x080001a8   Data           4  entry2.o(.ARM.Collect$$$$00002712)
-    .text                                    0x080001ac   Section       36  startup_stm32f401xx.o(.text)
-    $v0                                      0x080001ac   Number         0  startup_stm32f401xx.o(.text)
-    .text                                    0x080001d0   Section       36  init.o(.text)
-    i.BusFault_Handler                       0x080001f4   Section        0  stm32f4xx_it.o(i.BusFault_Handler)
-    i.DebugMon_Handler                       0x080001f6   Section        0  stm32f4xx_it.o(i.DebugMon_Handler)
-    i.GPIO_Init                              0x080001f8   Section        0  stm32f4xx_gpio_1.o(i.GPIO_Init)
-    i.GPIO_PinAFConfig                       0x08000274   Section        0  stm32f4xx_gpio_1.o(i.GPIO_PinAFConfig)
-    i.GPIO_ResetBits                         0x08000294   Section        0  stm32f4xx_gpio_1.o(i.GPIO_ResetBits)
-    i.GPIO_SetBits                           0x0800029a   Section        0  stm32f4xx_gpio_1.o(i.GPIO_SetBits)
-    i.HardFault_Handler                      0x0800029e   Section        0  stm32f4xx_it.o(i.HardFault_Handler)
-    i.MemManage_Handler                      0x080002a0   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
-    i.NMI_Handler                            0x080002a2   Section        0  stm32f4xx_it.o(i.NMI_Handler)
-    i.PendSV_Handler                         0x080002a4   Section        0  stm32f4xx_it.o(i.PendSV_Handler)
-    i.RCC_AHB1PeriphClockCmd                 0x080002a8   Section        0  stm32f4xx_rcc_1.o(i.RCC_AHB1PeriphClockCmd)
-    i.RCC_APB2PeriphClockCmd                 0x080002c4   Section        0  stm32f4xx_rcc_1.o(i.RCC_APB2PeriphClockCmd)
-    i.RCC_GetClocksFreq                      0x080002e0   Section        0  stm32f4xx_rcc_1.o(i.RCC_GetClocksFreq)
-    i.SVC_Handler                            0x08000380   Section        0  stm32f4xx_it.o(i.SVC_Handler)
-    i.SetSysClock                            0x08000384   Section        0  system_stm32f4xx.o(i.SetSysClock)
-    SetSysClock                              0x08000385   Thumb Code   164  system_stm32f4xx.o(i.SetSysClock)
-    i.SysTick_CLKSourceConfig                0x08000438   Section        0  misc_1.o(i.SysTick_CLKSourceConfig)
-    i.SysTick_Handler                        0x08000454   Section        0  stm32f4xx_it.o(i.SysTick_Handler)
-    i.SystemInit                             0x08000458   Section        0  system_stm32f4xx.o(i.SystemInit)
-    i.TimingDelay_Decrement                  0x080004b4   Section        0  stm32f4xx_it.o(i.TimingDelay_Decrement)
-    i.UARTInit                               0x080004c8   Section        0  uart.o(i.UARTInit)
-    i.USART_Cmd                              0x0800054c   Section        0  stm32f4xx_usart_1.o(i.USART_Cmd)
-    i.USART_Init                             0x08000564   Section        0  stm32f4xx_usart_1.o(i.USART_Init)
-    i.UsageFault_Handler                     0x08000620   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
-    i.__0printf$bare                         0x08000624   Section        0  printfb.o(i.__0printf$bare)
-    i.__scatterload_copy                     0x08000634   Section       14  handlers.o(i.__scatterload_copy)
-    i.__scatterload_null                     0x08000642   Section        2  handlers.o(i.__scatterload_null)
-    i.__scatterload_zeroinit                 0x08000644   Section       14  handlers.o(i.__scatterload_zeroinit)
-    i._printf_core                           0x08000652   Section        0  printfb.o(i._printf_core)
-    _printf_core                             0x08000653   Thumb Code    34  printfb.o(i._printf_core)
-    i.delayInit                              0x08000674   Section        0  delay.o(i.delayInit)
-    i.delay_ms                               0x0800068c   Section        0  delay.o(i.delay_ms)
-    i.fputc                                  0x08000718   Section        0  uart.o(i.fputc)
-    i.ledInit                                0x0800072c   Section        0  led.o(i.ledInit)
-    i.main                                   0x08000760   Section        0  main.o(i.main)
+    .emb_text                                0x080001ac   Section      190  port.o(.emb_text)
+    $v0                                      0x080001ac   Number         0  port.o(.emb_text)
+    .text                                    0x0800026c   Section       36  startup_stm32f401xx.o(.text)
+    $v0                                      0x0800026c   Number         0  startup_stm32f401xx.o(.text)
+    .text                                    0x08000290   Section        0  memcpya.o(.text)
+    .text                                    0x080002b4   Section        0  memseta.o(.text)
+    .text                                    0x080002d8   Section        0  uidiv.o(.text)
+    .text                                    0x08000304   Section       36  init.o(.text)
+    i.BusFault_Handler                       0x08000328   Section        0  stm32f4xx_it.o(i.BusFault_Handler)
+    i.DebugMon_Handler                       0x0800032a   Section        0  stm32f4xx_it.o(i.DebugMon_Handler)
+    i.GPIO_Init                              0x0800032c   Section        0  stm32f4xx_gpio_1.o(i.GPIO_Init)
+    i.GPIO_PinAFConfig                       0x080003a8   Section        0  stm32f4xx_gpio_1.o(i.GPIO_PinAFConfig)
+    i.GPIO_ResetBits                         0x080003c8   Section        0  stm32f4xx_gpio_1.o(i.GPIO_ResetBits)
+    i.GPIO_SetBits                           0x080003ce   Section        0  stm32f4xx_gpio_1.o(i.GPIO_SetBits)
+    i.HardFault_Handler                      0x080003d2   Section        0  stm32f4xx_it.o(i.HardFault_Handler)
+    i.MemManage_Handler                      0x080003d4   Section        0  stm32f4xx_it.o(i.MemManage_Handler)
+    i.NMI_Handler                            0x080003d6   Section        0  stm32f4xx_it.o(i.NMI_Handler)
+    i.NVIC_PriorityGroupConfig               0x080003d8   Section        0  misc_1.o(i.NVIC_PriorityGroupConfig)
+    i.RCC_AHB1PeriphClockCmd                 0x080003ec   Section        0  stm32f4xx_rcc_1.o(i.RCC_AHB1PeriphClockCmd)
+    i.RCC_APB2PeriphClockCmd                 0x08000408   Section        0  stm32f4xx_rcc_1.o(i.RCC_APB2PeriphClockCmd)
+    i.RCC_GetClocksFreq                      0x08000424   Section        0  stm32f4xx_rcc_1.o(i.RCC_GetClocksFreq)
+    i.SetSysClock                            0x080004c4   Section        0  system_stm32f4xx.o(i.SetSysClock)
+    SetSysClock                              0x080004c5   Thumb Code   164  system_stm32f4xx.o(i.SetSysClock)
+    i.SysTick_CLKSourceConfig                0x08000578   Section        0  misc_1.o(i.SysTick_CLKSourceConfig)
+    i.SysTick_Handler                        0x08000594   Section        0  port.o(i.SysTick_Handler)
+    i.SystemInit                             0x080005c0   Section        0  system_stm32f4xx.o(i.SystemInit)
+    i.UARTInit                               0x0800061c   Section        0  uart.o(i.UARTInit)
+    i.USART_Cmd                              0x080006a0   Section        0  stm32f4xx_usart_1.o(i.USART_Cmd)
+    i.USART_Init                             0x080006b8   Section        0  stm32f4xx_usart_1.o(i.USART_Init)
+    i.UsageFault_Handler                     0x08000774   Section        0  stm32f4xx_it.o(i.UsageFault_Handler)
+    i.__0printf$3                            0x08000778   Section        0  printf3.o(i.__0printf$3)
+    i.__scatterload_copy                     0x08000798   Section       14  handlers.o(i.__scatterload_copy)
+    i.__scatterload_null                     0x080007a6   Section        2  handlers.o(i.__scatterload_null)
+    i.__scatterload_zeroinit                 0x080007a8   Section       14  handlers.o(i.__scatterload_zeroinit)
+    i._printf_core                           0x080007b8   Section        0  printf3.o(i._printf_core)
+    _printf_core                             0x080007b9   Thumb Code   436  printf3.o(i._printf_core)
+    i.creat_task                             0x08000970   Section        0  rtostop.o(i.creat_task)
+    creat_task                               0x08000971   Thumb Code   126  rtostop.o(i.creat_task)
+    i.delayInit                              0x08000a7c   Section        0  delay.o(i.delayInit)
+    i.fputc                                  0x08000a94   Section        0  uart.o(i.fputc)
+    i.ledInit                                0x08000aa8   Section        0  led.o(i.ledInit)
+    i.led_blink                              0x08000adc   Section        0  rtostop.o(i.led_blink)
+    i.main                                   0x08000b04   Section        0  main.o(i.main)
+    i.prvAddCurrentTaskToDelayedList         0x08000b1c   Section        0  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    prvAddCurrentTaskToDelayedList           0x08000b1d   Thumb Code   112  tasks.o(i.prvAddCurrentTaskToDelayedList)
+    i.prvAddNewTaskToReadyList               0x08000b94   Section        0  tasks.o(i.prvAddNewTaskToReadyList)
+    prvAddNewTaskToReadyList                 0x08000b95   Thumb Code   156  tasks.o(i.prvAddNewTaskToReadyList)
+    i.prvCheckForValidListAndQueue           0x08000c3c   Section        0  timers.o(i.prvCheckForValidListAndQueue)
+    prvCheckForValidListAndQueue             0x08000c3d   Thumb Code    62  timers.o(i.prvCheckForValidListAndQueue)
+    i.prvCheckTasksWaitingTermination        0x08000c8c   Section        0  tasks.o(i.prvCheckTasksWaitingTermination)
+    prvCheckTasksWaitingTermination          0x08000c8d   Thumb Code    52  tasks.o(i.prvCheckTasksWaitingTermination)
+    i.prvCopyDataFromQueue                   0x08000cc8   Section        0  queue.o(i.prvCopyDataFromQueue)
+    prvCopyDataFromQueue                     0x08000cc9   Thumb Code    40  queue.o(i.prvCopyDataFromQueue)
+    i.prvDeleteTCB                           0x08000cf0   Section        0  tasks.o(i.prvDeleteTCB)
+    prvDeleteTCB                             0x08000cf1   Thumb Code    20  tasks.o(i.prvDeleteTCB)
+    i.prvGetNextExpireTime                   0x08000d04   Section        0  timers.o(i.prvGetNextExpireTime)
+    prvGetNextExpireTime                     0x08000d05   Thumb Code    30  timers.o(i.prvGetNextExpireTime)
+    i.prvHeapInit                            0x08000d28   Section        0  heap_4.o(i.prvHeapInit)
+    prvHeapInit                              0x08000d29   Thumb Code    62  heap_4.o(i.prvHeapInit)
+    i.prvIdleTask                            0x08000d70   Section        0  tasks.o(i.prvIdleTask)
+    prvIdleTask                              0x08000d71   Thumb Code    30  tasks.o(i.prvIdleTask)
+    i.prvInitialiseNewQueue                  0x08000d98   Section        0  queue.o(i.prvInitialiseNewQueue)
+    prvInitialiseNewQueue                    0x08000d99   Thumb Code    34  queue.o(i.prvInitialiseNewQueue)
+    i.prvInitialiseNewTask                   0x08000dba   Section        0  tasks.o(i.prvInitialiseNewTask)
+    prvInitialiseNewTask                     0x08000dbb   Thumb Code   162  tasks.o(i.prvInitialiseNewTask)
+    i.prvInitialiseTaskLists                 0x08000e5c   Section        0  tasks.o(i.prvInitialiseTaskLists)
+    prvInitialiseTaskLists                   0x08000e5d   Thumb Code    78  tasks.o(i.prvInitialiseTaskLists)
+    i.prvInsertBlockIntoFreeList             0x08000eb4   Section        0  heap_4.o(i.prvInsertBlockIntoFreeList)
+    prvInsertBlockIntoFreeList               0x08000eb5   Thumb Code    78  heap_4.o(i.prvInsertBlockIntoFreeList)
+    i.prvInsertTimerInActiveList             0x08000f08   Section        0  timers.o(i.prvInsertTimerInActiveList)
+    prvInsertTimerInActiveList               0x08000f09   Thumb Code    60  timers.o(i.prvInsertTimerInActiveList)
+    i.prvIsQueueEmpty                        0x08000f48   Section        0  queue.o(i.prvIsQueueEmpty)
+    prvIsQueueEmpty                          0x08000f49   Thumb Code    26  queue.o(i.prvIsQueueEmpty)
+    i.prvProcessExpiredTimer                 0x08000f64   Section        0  timers.o(i.prvProcessExpiredTimer)
+    prvProcessExpiredTimer                   0x08000f65   Thumb Code    58  timers.o(i.prvProcessExpiredTimer)
+    i.prvProcessReceivedCommands             0x08000fa4   Section        0  timers.o(i.prvProcessReceivedCommands)
+    prvProcessReceivedCommands               0x08000fa5   Thumb Code   222  timers.o(i.prvProcessReceivedCommands)
+    i.prvProcessTimerOrBlockTask             0x08001088   Section        0  timers.o(i.prvProcessTimerOrBlockTask)
+    prvProcessTimerOrBlockTask               0x08001089   Thumb Code   100  timers.o(i.prvProcessTimerOrBlockTask)
+    i.prvReloadTimer                         0x080010f4   Section        0  timers.o(i.prvReloadTimer)
+    prvReloadTimer                           0x080010f5   Thumb Code    40  timers.o(i.prvReloadTimer)
+    i.prvResetNextTaskUnblockTime            0x0800111c   Section        0  tasks.o(i.prvResetNextTaskUnblockTime)
+    prvResetNextTaskUnblockTime              0x0800111d   Thumb Code    28  tasks.o(i.prvResetNextTaskUnblockTime)
+    i.prvSampleTimeNow                       0x0800113c   Section        0  timers.o(i.prvSampleTimeNow)
+    prvSampleTimeNow                         0x0800113d   Thumb Code    38  timers.o(i.prvSampleTimeNow)
+    i.prvSwitchTimerLists                    0x08001168   Section        0  timers.o(i.prvSwitchTimerLists)
+    prvSwitchTimerLists                      0x08001169   Thumb Code    38  timers.o(i.prvSwitchTimerLists)
+    i.prvTaskExitError                       0x08001194   Section        0  port.o(i.prvTaskExitError)
+    prvTaskExitError                         0x08001195   Thumb Code    40  port.o(i.prvTaskExitError)
+    i.prvTimerTask                           0x080011c0   Section        0  timers.o(i.prvTimerTask)
+    prvTimerTask                             0x080011c1   Thumb Code    20  timers.o(i.prvTimerTask)
+    i.prvUnlockQueue                         0x080011d4   Section        0  queue.o(i.prvUnlockQueue)
+    prvUnlockQueue                           0x080011d5   Thumb Code   106  queue.o(i.prvUnlockQueue)
+    i.pvPortMalloc                           0x08001240   Section        0  heap_4.o(i.pvPortMalloc)
+    i.pxPortInitialiseStack                  0x08001308   Section        0  port.o(i.pxPortInitialiseStack)
+    i.rtos_init                              0x0800132c   Section        0  rtostop.o(i.rtos_init)
+    i.task1_task                             0x080013a0   Section        0  rtostop.o(i.task1_task)
+    i.task2_task                             0x080013d4   Section        0  rtostop.o(i.task2_task)
+    i.uxListRemove                           0x08001408   Section        0  list.o(i.uxListRemove)
+    i.vListInitialise                        0x0800142e   Section        0  list.o(i.vListInitialise)
+    i.vListInitialiseItem                    0x08001444   Section        0  list.o(i.vListInitialiseItem)
+    i.vListInsert                            0x0800144a   Section        0  list.o(i.vListInsert)
+    i.vListInsertEnd                         0x0800147a   Section        0  list.o(i.vListInsertEnd)
+    i.vPortEnterCritical                     0x08001494   Section        0  port.o(i.vPortEnterCritical)
+    i.vPortExitCritical                      0x080014d4   Section        0  port.o(i.vPortExitCritical)
+    i.vPortFree                              0x08001500   Section        0  heap_4.o(i.vPortFree)
+    i.vPortSetupTimerInterrupt               0x08001564   Section        0  port.o(i.vPortSetupTimerInterrupt)
+    i.vQueueAddToRegistry                    0x08001588   Section        0  queue.o(i.vQueueAddToRegistry)
+    i.vQueueWaitForMessageRestricted         0x080015d4   Section        0  queue.o(i.vQueueWaitForMessageRestricted)
+    i.vTaskDelay                             0x0800161c   Section        0  tasks.o(i.vTaskDelay)
+    i.vTaskDelete                            0x0800166c   Section        0  tasks.o(i.vTaskDelete)
+    i.vTaskInternalSetTimeOutState           0x08001700   Section        0  tasks.o(i.vTaskInternalSetTimeOutState)
+    i.vTaskMissedYield                       0x08001710   Section        0  tasks.o(i.vTaskMissedYield)
+    i.vTaskPlaceOnEventList                  0x0800171c   Section        0  tasks.o(i.vTaskPlaceOnEventList)
+    i.vTaskPlaceOnEventListRestricted        0x08001750   Section        0  tasks.o(i.vTaskPlaceOnEventListRestricted)
+    i.vTaskStartScheduler                    0x080017a4   Section        0  tasks.o(i.vTaskStartScheduler)
+    i.vTaskSuspendAll                        0x08001814   Section        0  tasks.o(i.vTaskSuspendAll)
+    i.vTaskSwitchContext                     0x08001824   Section        0  tasks.o(i.vTaskSwitchContext)
+    i.xPortStartScheduler                    0x0800188c   Section        0  port.o(i.xPortStartScheduler)
+    i.xQueueGenericCreate                    0x08001980   Section        0  queue.o(i.xQueueGenericCreate)
+    i.xQueueGenericReset                     0x080019d0   Section        0  queue.o(i.xQueueGenericReset)
+    i.xQueueReceive                          0x08001a84   Section        0  queue.o(i.xQueueReceive)
+    i.xTaskCheckForTimeOut                   0x08001bc0   Section        0  tasks.o(i.xTaskCheckForTimeOut)
+    i.xTaskCreate                            0x08001c40   Section        0  tasks.o(i.xTaskCreate)
+    i.xTaskGetSchedulerState                 0x08001ca8   Section        0  tasks.o(i.xTaskGetSchedulerState)
+    i.xTaskGetTickCount                      0x08001cc4   Section        0  tasks.o(i.xTaskGetTickCount)
+    i.xTaskIncrementTick                     0x08001cd0   Section        0  tasks.o(i.xTaskIncrementTick)
+    i.xTaskRemoveFromEventList               0x08001dfc   Section        0  tasks.o(i.xTaskRemoveFromEventList)
+    i.xTaskResumeAll                         0x08001ed8   Section        0  tasks.o(i.xTaskResumeAll)
+    i.xTimerCreateTimerTask                  0x08001ffc   Section        0  timers.o(i.xTimerCreateTimerTask)
+    .constdata                               0x0800204c   Section       11  rtostop.o(.constdata)
+    __FUNCTION__                             0x0800204c   Data          11  rtostop.o(.constdata)
     .data                                    0x20000000   Section       16  stm32f4xx_rcc_1.o(.data)
     APBAHBPrescTable                         0x20000000   Data          16  stm32f4xx_rcc_1.o(.data)
-    .data                                    0x20000010   Section        4  stm32f4xx_it.o(.data)
-    TimingDelay                              0x20000010   Data           4  stm32f4xx_it.o(.data)
-    .data                                    0x20000014   Section       20  system_stm32f4xx.o(.data)
-    .data                                    0x20000028   Section        4  stdout.o(.data)
-    STACK                                    0x20000030   Section     1024  startup_stm32f401xx.o(STACK)
+    .data                                    0x20000010   Section       20  system_stm32f4xx.o(.data)
+    .data                                    0x20000024   Section       28  heap_4.o(.data)
+    pxEnd                                    0x20000024   Data           4  heap_4.o(.data)
+    xFreeBytesRemaining                      0x20000028   Data           4  heap_4.o(.data)
+    xMinimumEverFreeBytesRemaining           0x2000002c   Data           4  heap_4.o(.data)
+    xNumberOfSuccessfulAllocations           0x20000030   Data           4  heap_4.o(.data)
+    xNumberOfSuccessfulFrees                 0x20000034   Data           4  heap_4.o(.data)
+    xStart                                   0x20000038   Data           8  heap_4.o(.data)
+    .data                                    0x20000040   Section       12  port.o(.data)
+    ucMaxSysCallPriority                     0x20000040   Data           1  port.o(.data)
+    uxCriticalNesting                        0x20000044   Data           4  port.o(.data)
+    ulMaxPRIGROUPValue                       0x20000048   Data           4  port.o(.data)
+    .data                                    0x2000004c   Section       64  tasks.o(.data)
+    uxDeletedTasksWaitingCleanUp             0x20000050   Data           4  tasks.o(.data)
+    uxCurrentNumberOfTasks                   0x20000054   Data           4  tasks.o(.data)
+    xTickCount                               0x20000058   Data           4  tasks.o(.data)
+    uxTopReadyPriority                       0x2000005c   Data           4  tasks.o(.data)
+    xSchedulerRunning                        0x20000060   Data           4  tasks.o(.data)
+    xPendedTicks                             0x20000064   Data           4  tasks.o(.data)
+    xYieldPending                            0x20000068   Data           4  tasks.o(.data)
+    xNumOfOverflows                          0x2000006c   Data           4  tasks.o(.data)
+    uxTaskNumber                             0x20000070   Data           4  tasks.o(.data)
+    xNextTaskUnblockTime                     0x20000074   Data           4  tasks.o(.data)
+    xIdleTaskHandle                          0x20000078   Data           4  tasks.o(.data)
+    uxSchedulerSuspended                     0x20000080   Data           4  tasks.o(.data)
+    pxDelayedTaskList                        0x20000084   Data           4  tasks.o(.data)
+    pxOverflowDelayedTaskList                0x20000088   Data           4  tasks.o(.data)
+    .data                                    0x2000008c   Section       20  timers.o(.data)
+    xTimerQueue                              0x2000008c   Data           4  timers.o(.data)
+    xTimerTaskHandle                         0x20000090   Data           4  timers.o(.data)
+    xLastTime                                0x20000094   Data           4  timers.o(.data)
+    pxCurrentTimerList                       0x20000098   Data           4  timers.o(.data)
+    pxOverflowTimerList                      0x2000009c   Data           4  timers.o(.data)
+    .data                                    0x200000a0   Section       16  rtostop.o(.data)
+    xTask_creat                              0x200000ac   Data           4  rtostop.o(.data)
+    .data                                    0x200000b0   Section        4  stdout.o(.data)
+    .bss                                     0x200000b4   Section    35840  heap_4.o(.bss)
+    ucHeap                                   0x200000b4   Data       35840  heap_4.o(.bss)
+    .bss                                     0x20008cb4   Section       64  queue.o(.bss)
+    .bss                                     0x20008cf4   Section      200  tasks.o(.bss)
+    pxReadyTasksLists                        0x20008cf4   Data         100  tasks.o(.bss)
+    xDelayedTaskList1                        0x20008d58   Data          20  tasks.o(.bss)
+    xDelayedTaskList2                        0x20008d6c   Data          20  tasks.o(.bss)
+    xPendingReadyList                        0x20008d80   Data          20  tasks.o(.bss)
+    xTasksWaitingTermination                 0x20008d94   Data          20  tasks.o(.bss)
+    xSuspendedTaskList                       0x20008da8   Data          20  tasks.o(.bss)
+    .bss                                     0x20008dbc   Section       40  timers.o(.bss)
+    xActiveTimerList1                        0x20008dbc   Data          20  timers.o(.bss)
+    xActiveTimerList2                        0x20008dd0   Data          20  timers.o(.bss)
+    STACK                                    0x20008de8   Section     1024  startup_stm32f401xx.o(STACK)
 
     Global Symbols
 
@@ -1553,6 +2340,47 @@ Image Symbol Table
 
     BuildAttributes$$THM_ISAv4$E$P$D$K$B$S$7EM$VFPi3$EXTD16$VFPS$VFMA$PE$A:L22UL41UL21$X:L11$S22US41US21$IEEE1$IW$USESV6$~STKCKD$USESV7$~SHL$OSPACE$ROPI$EBA8$MICROLIB$REQ8$PRES8$EABIv2 0x00000000   Number         0  anon$$obj.o ABSOLUTE
     __ARM_use_no_argv                        0x00000000   Number         0  main.o ABSOLUTE
+    _printf_a                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_c                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_charcount                        0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_d                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_e                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_f                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_flags                            0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_fp_dec                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_fp_hex                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_g                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_i                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_int_dec                          0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_l                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lc                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_ll                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lld                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_lli                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llo                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llu                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_llx                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_dec                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_hex                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_longlong_oct                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_ls                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_mbtowc                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_n                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_o                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_p                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_percent                          0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_pre_padding                      0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_return_value                     0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_s                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_sizespec                         0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_str                              0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_truncate_signed                  0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_truncate_unsigned                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_u                                0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_wc                               0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_wctomb                           0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_widthprec                        0x00000000   Number         0  stubs.o ABSOLUTE
+    _printf_x                                0x00000000   Number         0  stubs.o ABSOLUTE
     __arm_fini_                               - Undefined Weak Reference
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
@@ -1572,104 +2400,162 @@ Image Symbol Table
     __rt_lib_shutdown_fini                   0x080001a5   Thumb Code     0  entry12b.o(.ARM.Collect$$$$0000000E)
     __rt_final_cpp                           0x080001a9   Thumb Code     0  entry10a.o(.ARM.Collect$$$$0000000F)
     __rt_final_exit                          0x080001a9   Thumb Code     0  entry11a.o(.ARM.Collect$$$$00000011)
-    Reset_Handler                            0x080001ad   Thumb Code     8  startup_stm32f401xx.o(.text)
-    ADC_IRQHandler                           0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream0_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream1_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream2_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream3_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream4_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream5_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream6_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA1_Stream7_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream0_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream1_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream2_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream3_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream4_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream5_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream6_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    DMA2_Stream7_IRQHandler                  0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI0_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI15_10_IRQHandler                     0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI1_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI2_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI3_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI4_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    EXTI9_5_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    FLASH_IRQHandler                         0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    FPU_IRQHandler                           0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C1_ER_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C1_EV_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C2_ER_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C2_EV_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C3_ER_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    I2C3_EV_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    OTG_FS_IRQHandler                        0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    OTG_FS_WKUP_IRQHandler                   0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    PVD_IRQHandler                           0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    RCC_IRQHandler                           0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    RTC_Alarm_IRQHandler                     0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    RTC_WKUP_IRQHandler                      0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    SDIO_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    SPI1_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    SPI2_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    SPI3_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    SPI4_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TAMP_STAMP_IRQHandler                    0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM1_BRK_TIM9_IRQHandler                 0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM1_CC_IRQHandler                       0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM1_TRG_COM_TIM11_IRQHandler            0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM1_UP_TIM10_IRQHandler                 0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM2_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM3_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM4_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    TIM5_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    USART1_IRQHandler                        0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    USART2_IRQHandler                        0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    USART6_IRQHandler                        0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    WWDG_IRQHandler                          0x080001c7   Thumb Code     0  startup_stm32f401xx.o(.text)
-    __scatterload                            0x080001d1   Thumb Code    28  init.o(.text)
-    __scatterload_rt2                        0x080001d1   Thumb Code     0  init.o(.text)
-    BusFault_Handler                         0x080001f5   Thumb Code     2  stm32f4xx_it.o(i.BusFault_Handler)
-    DebugMon_Handler                         0x080001f7   Thumb Code     2  stm32f4xx_it.o(i.DebugMon_Handler)
-    GPIO_Init                                0x080001f9   Thumb Code   124  stm32f4xx_gpio_1.o(i.GPIO_Init)
-    GPIO_PinAFConfig                         0x08000275   Thumb Code    32  stm32f4xx_gpio_1.o(i.GPIO_PinAFConfig)
-    GPIO_ResetBits                           0x08000295   Thumb Code     6  stm32f4xx_gpio_1.o(i.GPIO_ResetBits)
-    GPIO_SetBits                             0x0800029b   Thumb Code     4  stm32f4xx_gpio_1.o(i.GPIO_SetBits)
-    HardFault_Handler                        0x0800029f   Thumb Code     2  stm32f4xx_it.o(i.HardFault_Handler)
-    MemManage_Handler                        0x080002a1   Thumb Code     2  stm32f4xx_it.o(i.MemManage_Handler)
-    NMI_Handler                              0x080002a3   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
-    PendSV_Handler                           0x080002a5   Thumb Code     2  stm32f4xx_it.o(i.PendSV_Handler)
-    RCC_AHB1PeriphClockCmd                   0x080002a9   Thumb Code    22  stm32f4xx_rcc_1.o(i.RCC_AHB1PeriphClockCmd)
-    RCC_APB2PeriphClockCmd                   0x080002c5   Thumb Code    22  stm32f4xx_rcc_1.o(i.RCC_APB2PeriphClockCmd)
-    RCC_GetClocksFreq                        0x080002e1   Thumb Code   148  stm32f4xx_rcc_1.o(i.RCC_GetClocksFreq)
-    SVC_Handler                              0x08000381   Thumb Code     2  stm32f4xx_it.o(i.SVC_Handler)
-    SysTick_CLKSourceConfig                  0x08000439   Thumb Code    28  misc_1.o(i.SysTick_CLKSourceConfig)
-    SysTick_Handler                          0x08000455   Thumb Code     4  stm32f4xx_it.o(i.SysTick_Handler)
-    SystemInit                               0x08000459   Thumb Code    74  system_stm32f4xx.o(i.SystemInit)
-    TimingDelay_Decrement                    0x080004b5   Thumb Code    16  stm32f4xx_it.o(i.TimingDelay_Decrement)
-    UARTInit                                 0x080004c9   Thumb Code   124  uart.o(i.UARTInit)
-    USART_Cmd                                0x0800054d   Thumb Code    24  stm32f4xx_usart_1.o(i.USART_Cmd)
-    USART_Init                               0x08000565   Thumb Code   180  stm32f4xx_usart_1.o(i.USART_Init)
-    UsageFault_Handler                       0x08000621   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
-    __0printf$bare                           0x08000625   Thumb Code     8  printfb.o(i.__0printf$bare)
-    __1printf$bare                           0x08000625   Thumb Code     0  printfb.o(i.__0printf$bare)
-    __2printf                                0x08000625   Thumb Code     0  printfb.o(i.__0printf$bare)
-    __scatterload_copy                       0x08000635   Thumb Code    14  handlers.o(i.__scatterload_copy)
-    __scatterload_null                       0x08000643   Thumb Code     2  handlers.o(i.__scatterload_null)
-    __scatterload_zeroinit                   0x08000645   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
-    delayInit                                0x08000675   Thumb Code    24  delay.o(i.delayInit)
-    delay_ms                                 0x0800068d   Thumb Code   130  delay.o(i.delay_ms)
-    fputc                                    0x08000719   Thumb Code    14  uart.o(i.fputc)
-    ledInit                                  0x0800072d   Thumb Code    46  led.o(i.ledInit)
-    main                                     0x08000761   Thumb Code    72  main.o(i.main)
-    Region$$Table$$Base                      0x080007dc   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x080007fc   Number         0  anon$$obj.o(Region$$Table)
-    SystemCoreClock                          0x20000014   Data           4  system_stm32f4xx.o(.data)
-    AHBPrescTable                            0x20000018   Data          16  system_stm32f4xx.o(.data)
-    __stdout                                 0x20000028   Data           4  stdout.o(.data)
-    __initial_sp                             0x20000430   Data           0  startup_stm32f401xx.o(STACK)
+    SVC_Handler                              0x080001ad   Thumb Code    28  port.o(.emb_text)
+    __asm___6_port_c_39a90d8d__prvStartFirstTask 0x080001cd   Thumb Code    36  port.o(.emb_text)
+    __asm___6_port_c_39a90d8d__prvEnableVFP  0x080001f5   Thumb Code    16  port.o(.emb_text)
+    PendSV_Handler                           0x08000209   Thumb Code    88  port.o(.emb_text)
+    vPortGetIPSR                             0x08000265   Thumb Code     6  port.o(.emb_text)
+    Reset_Handler                            0x0800026d   Thumb Code     8  startup_stm32f401xx.o(.text)
+    ADC_IRQHandler                           0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream0_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream1_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream2_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream3_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream4_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream5_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream6_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA1_Stream7_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream0_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream1_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream2_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream3_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream4_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream5_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream6_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    DMA2_Stream7_IRQHandler                  0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI0_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI15_10_IRQHandler                     0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI1_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI2_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI3_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI4_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    EXTI9_5_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    FLASH_IRQHandler                         0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    FPU_IRQHandler                           0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C1_ER_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C1_EV_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C2_ER_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C2_EV_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C3_ER_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    I2C3_EV_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    OTG_FS_IRQHandler                        0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    OTG_FS_WKUP_IRQHandler                   0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    PVD_IRQHandler                           0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    RCC_IRQHandler                           0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    RTC_Alarm_IRQHandler                     0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    RTC_WKUP_IRQHandler                      0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    SDIO_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    SPI1_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    SPI2_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    SPI3_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    SPI4_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TAMP_STAMP_IRQHandler                    0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM1_BRK_TIM9_IRQHandler                 0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM1_CC_IRQHandler                       0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM1_TRG_COM_TIM11_IRQHandler            0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM1_UP_TIM10_IRQHandler                 0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM2_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM3_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM4_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    TIM5_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    USART1_IRQHandler                        0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    USART2_IRQHandler                        0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    USART6_IRQHandler                        0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    WWDG_IRQHandler                          0x08000287   Thumb Code     0  startup_stm32f401xx.o(.text)
+    __aeabi_memcpy                           0x08000291   Thumb Code    36  memcpya.o(.text)
+    __aeabi_memcpy4                          0x08000291   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memcpy8                          0x08000291   Thumb Code     0  memcpya.o(.text)
+    __aeabi_memset                           0x080002b5   Thumb Code    14  memseta.o(.text)
+    __aeabi_memset4                          0x080002b5   Thumb Code     0  memseta.o(.text)
+    __aeabi_memset8                          0x080002b5   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr                           0x080002c3   Thumb Code     4  memseta.o(.text)
+    __aeabi_memclr4                          0x080002c3   Thumb Code     0  memseta.o(.text)
+    __aeabi_memclr8                          0x080002c3   Thumb Code     0  memseta.o(.text)
+    memset                                   0x080002c7   Thumb Code    18  memseta.o(.text)
+    __aeabi_uidiv                            0x080002d9   Thumb Code     0  uidiv.o(.text)
+    __aeabi_uidivmod                         0x080002d9   Thumb Code    44  uidiv.o(.text)
+    __scatterload                            0x08000305   Thumb Code    28  init.o(.text)
+    __scatterload_rt2                        0x08000305   Thumb Code     0  init.o(.text)
+    BusFault_Handler                         0x08000329   Thumb Code     2  stm32f4xx_it.o(i.BusFault_Handler)
+    DebugMon_Handler                         0x0800032b   Thumb Code     2  stm32f4xx_it.o(i.DebugMon_Handler)
+    GPIO_Init                                0x0800032d   Thumb Code   124  stm32f4xx_gpio_1.o(i.GPIO_Init)
+    GPIO_PinAFConfig                         0x080003a9   Thumb Code    32  stm32f4xx_gpio_1.o(i.GPIO_PinAFConfig)
+    GPIO_ResetBits                           0x080003c9   Thumb Code     6  stm32f4xx_gpio_1.o(i.GPIO_ResetBits)
+    GPIO_SetBits                             0x080003cf   Thumb Code     4  stm32f4xx_gpio_1.o(i.GPIO_SetBits)
+    HardFault_Handler                        0x080003d3   Thumb Code     2  stm32f4xx_it.o(i.HardFault_Handler)
+    MemManage_Handler                        0x080003d5   Thumb Code     2  stm32f4xx_it.o(i.MemManage_Handler)
+    NMI_Handler                              0x080003d7   Thumb Code     2  stm32f4xx_it.o(i.NMI_Handler)
+    NVIC_PriorityGroupConfig                 0x080003d9   Thumb Code    10  misc_1.o(i.NVIC_PriorityGroupConfig)
+    RCC_AHB1PeriphClockCmd                   0x080003ed   Thumb Code    22  stm32f4xx_rcc_1.o(i.RCC_AHB1PeriphClockCmd)
+    RCC_APB2PeriphClockCmd                   0x08000409   Thumb Code    22  stm32f4xx_rcc_1.o(i.RCC_APB2PeriphClockCmd)
+    RCC_GetClocksFreq                        0x08000425   Thumb Code   148  stm32f4xx_rcc_1.o(i.RCC_GetClocksFreq)
+    SysTick_CLKSourceConfig                  0x08000579   Thumb Code    28  misc_1.o(i.SysTick_CLKSourceConfig)
+    SysTick_Handler                          0x08000595   Thumb Code    38  port.o(i.SysTick_Handler)
+    SystemInit                               0x080005c1   Thumb Code    74  system_stm32f4xx.o(i.SystemInit)
+    UARTInit                                 0x0800061d   Thumb Code   124  uart.o(i.UARTInit)
+    USART_Cmd                                0x080006a1   Thumb Code    24  stm32f4xx_usart_1.o(i.USART_Cmd)
+    USART_Init                               0x080006b9   Thumb Code   180  stm32f4xx_usart_1.o(i.USART_Init)
+    UsageFault_Handler                       0x08000775   Thumb Code     2  stm32f4xx_it.o(i.UsageFault_Handler)
+    __0printf$3                              0x08000779   Thumb Code    22  printf3.o(i.__0printf$3)
+    __1printf$3                              0x08000779   Thumb Code     0  printf3.o(i.__0printf$3)
+    __2printf                                0x08000779   Thumb Code     0  printf3.o(i.__0printf$3)
+    __scatterload_copy                       0x08000799   Thumb Code    14  handlers.o(i.__scatterload_copy)
+    __scatterload_null                       0x080007a7   Thumb Code     2  handlers.o(i.__scatterload_null)
+    __scatterload_zeroinit                   0x080007a9   Thumb Code    14  handlers.o(i.__scatterload_zeroinit)
+    delayInit                                0x08000a7d   Thumb Code    24  delay.o(i.delayInit)
+    fputc                                    0x08000a95   Thumb Code    14  uart.o(i.fputc)
+    ledInit                                  0x08000aa9   Thumb Code    46  led.o(i.ledInit)
+    led_blink                                0x08000add   Thumb Code    36  rtostop.o(i.led_blink)
+    main                                     0x08000b05   Thumb Code    22  main.o(i.main)
+    pvPortMalloc                             0x08001241   Thumb Code   194  heap_4.o(i.pvPortMalloc)
+    pxPortInitialiseStack                    0x08001309   Thumb Code    30  port.o(i.pxPortInitialiseStack)
+    rtos_init                                0x0800132d   Thumb Code    56  rtostop.o(i.rtos_init)
+    task1_task                               0x080013a1   Thumb Code    26  rtostop.o(i.task1_task)
+    task2_task                               0x080013d5   Thumb Code    26  rtostop.o(i.task2_task)
+    uxListRemove                             0x08001409   Thumb Code    38  list.o(i.uxListRemove)
+    vListInitialise                          0x0800142f   Thumb Code    22  list.o(i.vListInitialise)
+    vListInitialiseItem                      0x08001445   Thumb Code     6  list.o(i.vListInitialiseItem)
+    vListInsert                              0x0800144b   Thumb Code    48  list.o(i.vListInsert)
+    vListInsertEnd                           0x0800147b   Thumb Code    24  list.o(i.vListInsertEnd)
+    vPortEnterCritical                       0x08001495   Thumb Code    54  port.o(i.vPortEnterCritical)
+    vPortExitCritical                        0x080014d5   Thumb Code    38  port.o(i.vPortExitCritical)
+    vPortFree                                0x08001501   Thumb Code    94  heap_4.o(i.vPortFree)
+    vPortSetupTimerInterrupt                 0x08001565   Thumb Code    32  port.o(i.vPortSetupTimerInterrupt)
+    vQueueAddToRegistry                      0x08001589   Thumb Code    72  queue.o(i.vQueueAddToRegistry)
+    vQueueWaitForMessageRestricted           0x080015d5   Thumb Code    70  queue.o(i.vQueueWaitForMessageRestricted)
+    vTaskDelay                               0x0800161d   Thumb Code    70  tasks.o(i.vTaskDelay)
+    vTaskDelete                              0x0800166d   Thumb Code   136  tasks.o(i.vTaskDelete)
+    vTaskInternalSetTimeOutState             0x08001701   Thumb Code    12  tasks.o(i.vTaskInternalSetTimeOutState)
+    vTaskMissedYield                         0x08001711   Thumb Code     8  tasks.o(i.vTaskMissedYield)
+    vTaskPlaceOnEventList                    0x0800171d   Thumb Code    46  tasks.o(i.vTaskPlaceOnEventList)
+    vTaskPlaceOnEventListRestricted          0x08001751   Thumb Code    78  tasks.o(i.vTaskPlaceOnEventListRestricted)
+    vTaskStartScheduler                      0x080017a5   Thumb Code    94  tasks.o(i.vTaskStartScheduler)
+    vTaskSuspendAll                          0x08001815   Thumb Code    10  tasks.o(i.vTaskSuspendAll)
+    vTaskSwitchContext                       0x08001825   Thumb Code    94  tasks.o(i.vTaskSwitchContext)
+    xPortStartScheduler                      0x0800188d   Thumb Code   222  port.o(i.xPortStartScheduler)
+    xQueueGenericCreate                      0x08001981   Thumb Code    80  queue.o(i.xQueueGenericCreate)
+    xQueueGenericReset                       0x080019d1   Thumb Code   176  queue.o(i.xQueueGenericReset)
+    xQueueReceive                            0x08001a85   Thumb Code   310  queue.o(i.xQueueReceive)
+    xTaskCheckForTimeOut                     0x08001bc1   Thumb Code   122  tasks.o(i.xTaskCheckForTimeOut)
+    xTaskCreate                              0x08001c41   Thumb Code   104  tasks.o(i.xTaskCreate)
+    xTaskGetSchedulerState                   0x08001ca9   Thumb Code    24  tasks.o(i.xTaskGetSchedulerState)
+    xTaskGetTickCount                        0x08001cc5   Thumb Code     6  tasks.o(i.xTaskGetTickCount)
+    xTaskIncrementTick                       0x08001cd1   Thumb Code   290  tasks.o(i.xTaskIncrementTick)
+    xTaskRemoveFromEventList                 0x08001dfd   Thumb Code   210  tasks.o(i.xTaskRemoveFromEventList)
+    xTaskResumeAll                           0x08001ed9   Thumb Code   280  tasks.o(i.xTaskResumeAll)
+    xTimerCreateTimerTask                    0x08001ffd   Thumb Code    62  timers.o(i.xTimerCreateTimerTask)
+    Region$$Table$$Base                      0x08002058   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08002078   Number         0  anon$$obj.o(Region$$Table)
+    SystemCoreClock                          0x20000010   Data           4  system_stm32f4xx.o(.data)
+    AHBPrescTable                            0x20000014   Data          16  system_stm32f4xx.o(.data)
+    pxCurrentTCB                             0x2000004c   Data           4  tasks.o(.data)
+    uxTopUsedPriority                        0x2000007c   Data           4  tasks.o(.data)
+    Task1Task_Handler                        0x200000a0   Data           4  rtostop.o(.data)
+    Task2Task_Handler                        0x200000a4   Data           4  rtostop.o(.data)
+    ledTask_Handler                          0x200000a8   Data           4  rtostop.o(.data)
+    __stdout                                 0x200000b0   Data           4  stdout.o(.data)
+    xQueueRegistry                           0x20008cb4   Data          64  queue.o(.bss)
+    __initial_sp                             0x200091e8   Data           0  startup_stm32f401xx.o(STACK)
 
 
 
@@ -1679,74 +2565,154 @@ Memory Map of the image
 
   Image Entry point : 0x08000195
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00000828, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x0000212c, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x000007fc, Max: 0x00040000, ABSOLUTE)
-
-    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
-
-    0x08000000   0x08000000   0x00000194   Data   RO         5038    RESET               startup_stm32f401xx.o
-    0x08000194   0x08000194   0x00000000   Code   RO         5205  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
-    0x08000194   0x08000194   0x00000004   Code   RO         5468    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
-    0x08000198   0x08000198   0x00000004   Code   RO         5471    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
-    0x0800019c   0x0800019c   0x00000000   Code   RO         5473    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
-    0x0800019c   0x0800019c   0x00000000   Code   RO         5475    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
-    0x0800019c   0x0800019c   0x00000008   Code   RO         5476    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
-    0x080001a4   0x080001a4   0x00000004   Code   RO         5483    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         5478    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
-    0x080001a8   0x080001a8   0x00000000   Code   RO         5480    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
-    0x080001a8   0x080001a8   0x00000004   Code   RO         5469    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
-    0x080001ac   0x080001ac   0x00000024   Code   RO         5039    .text               startup_stm32f401xx.o
-    0x080001d0   0x080001d0   0x00000024   Code   RO         5500    .text               mc_w.l(init.o)
-    0x080001f4   0x080001f4   0x00000002   Code   RO         4912    i.BusFault_Handler  stm32f4xx_it.o
-    0x080001f6   0x080001f6   0x00000002   Code   RO         4913    i.DebugMon_Handler  stm32f4xx_it.o
-    0x080001f8   0x080001f8   0x0000007c   Code   RO         1842    i.GPIO_Init         stm32f4xx_gpio_1.o
-    0x08000274   0x08000274   0x00000020   Code   RO         1843    i.GPIO_PinAFConfig  stm32f4xx_gpio_1.o
-    0x08000294   0x08000294   0x00000006   Code   RO         1849    i.GPIO_ResetBits    stm32f4xx_gpio_1.o
-    0x0800029a   0x0800029a   0x00000004   Code   RO         1850    i.GPIO_SetBits      stm32f4xx_gpio_1.o
-    0x0800029e   0x0800029e   0x00000002   Code   RO         4914    i.HardFault_Handler  stm32f4xx_it.o
-    0x080002a0   0x080002a0   0x00000002   Code   RO         4915    i.MemManage_Handler  stm32f4xx_it.o
-    0x080002a2   0x080002a2   0x00000002   Code   RO         4916    i.NMI_Handler       stm32f4xx_it.o
-    0x080002a4   0x080002a4   0x00000002   Code   RO         4917    i.PendSV_Handler    stm32f4xx_it.o
-    0x080002a6   0x080002a6   0x00000002   PAD
-    0x080002a8   0x080002a8   0x0000001c   Code   RO         2783    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc_1.o
-    0x080002c4   0x080002c4   0x0000001c   Code   RO         2792    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc_1.o
-    0x080002e0   0x080002e0   0x000000a0   Code   RO         2801    i.RCC_GetClocksFreq  stm32f4xx_rcc_1.o
-    0x08000380   0x08000380   0x00000002   Code   RO         4918    i.SVC_Handler       stm32f4xx_it.o
-    0x08000382   0x08000382   0x00000002   PAD
-    0x08000384   0x08000384   0x000000b4   Code   RO         4998    i.SetSysClock       system_stm32f4xx.o
-    0x08000438   0x08000438   0x0000001c   Code   RO            8    i.SysTick_CLKSourceConfig  misc_1.o
-    0x08000454   0x08000454   0x00000004   Code   RO         4919    i.SysTick_Handler   stm32f4xx_it.o
-    0x08000458   0x08000458   0x0000005c   Code   RO         5000    i.SystemInit        system_stm32f4xx.o
-    0x080004b4   0x080004b4   0x00000014   Code   RO         4920    i.TimingDelay_Decrement  stm32f4xx_it.o
-    0x080004c8   0x080004c8   0x00000084   Code   RO         5087    i.UARTInit          uart.o
-    0x0800054c   0x0800054c   0x00000018   Code   RO         4658    i.USART_Cmd         stm32f4xx_usart_1.o
-    0x08000564   0x08000564   0x000000bc   Code   RO         4665    i.USART_Init        stm32f4xx_usart_1.o
-    0x08000620   0x08000620   0x00000002   Code   RO         4921    i.UsageFault_Handler  stm32f4xx_it.o
-    0x08000622   0x08000622   0x00000002   PAD
-    0x08000624   0x08000624   0x00000010   Code   RO         5209    i.__0printf$bare    mc_w.l(printfb.o)
-    0x08000634   0x08000634   0x0000000e   Code   RO         5512    i.__scatterload_copy  mc_w.l(handlers.o)
-    0x08000642   0x08000642   0x00000002   Code   RO         5513    i.__scatterload_null  mc_w.l(handlers.o)
-    0x08000644   0x08000644   0x0000000e   Code   RO         5514    i.__scatterload_zeroinit  mc_w.l(handlers.o)
-    0x08000652   0x08000652   0x00000022   Code   RO         5216    i._printf_core      mc_w.l(printfb.o)
-    0x08000674   0x08000674   0x00000018   Code   RO         5168    i.delayInit         delay.o
-    0x0800068c   0x0800068c   0x0000008c   Code   RO         5169    i.delay_ms          delay.o
-    0x08000718   0x08000718   0x00000014   Code   RO         5091    i.fputc             uart.o
-    0x0800072c   0x0800072c   0x00000034   Code   RO         5144    i.ledInit           led.o
-    0x08000760   0x08000760   0x0000007c   Code   RO         5046    i.main              main.o
-    0x080007dc   0x080007dc   0x00000020   Data   RO         5510    Region$$Table       anon$$obj.o
-
-
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x080007fc, Size: 0x00000430, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00002078, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x080007fc   0x00000010   Data   RW         2831    .data               stm32f4xx_rcc_1.o
-    0x20000010   0x0800080c   0x00000004   Data   RW         4922    .data               stm32f4xx_it.o
-    0x20000014   0x08000810   0x00000014   Data   RW         5001    .data               system_stm32f4xx.o
-    0x20000028   0x08000824   0x00000004   Data   RW         5484    .data               mc_w.l(stdout.o)
-    0x2000002c   0x08000828   0x00000004   PAD
-    0x20000030        -       0x00000400   Zero   RW         5036    STACK               startup_stm32f401xx.o
+    0x08000000   0x08000000   0x00000194   Data   RO         5057    RESET               startup_stm32f401xx.o
+    0x08000194   0x08000194   0x00000000   Code   RO         6644  * .ARM.Collect$$$$00000000  mc_w.l(entry.o)
+    0x08000194   0x08000194   0x00000004   Code   RO         6916    .ARM.Collect$$$$00000001  mc_w.l(entry2.o)
+    0x08000198   0x08000198   0x00000004   Code   RO         6919    .ARM.Collect$$$$00000004  mc_w.l(entry5.o)
+    0x0800019c   0x0800019c   0x00000000   Code   RO         6921    .ARM.Collect$$$$00000008  mc_w.l(entry7b.o)
+    0x0800019c   0x0800019c   0x00000000   Code   RO         6923    .ARM.Collect$$$$0000000A  mc_w.l(entry8b.o)
+    0x0800019c   0x0800019c   0x00000008   Code   RO         6924    .ARM.Collect$$$$0000000B  mc_w.l(entry9a.o)
+    0x080001a4   0x080001a4   0x00000004   Code   RO         6931    .ARM.Collect$$$$0000000E  mc_w.l(entry12b.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         6926    .ARM.Collect$$$$0000000F  mc_w.l(entry10a.o)
+    0x080001a8   0x080001a8   0x00000000   Code   RO         6928    .ARM.Collect$$$$00000011  mc_w.l(entry11a.o)
+    0x080001a8   0x080001a8   0x00000004   Code   RO         6917    .ARM.Collect$$$$00002712  mc_w.l(entry2.o)
+    0x080001ac   0x080001ac   0x000000be   Code   RO         5340    .emb_text           port.o
+    0x0800026a   0x0800026a   0x00000002   PAD
+    0x0800026c   0x0800026c   0x00000024   Code   RO         5058    .text               startup_stm32f401xx.o
+    0x08000290   0x08000290   0x00000024   Code   RO         6647    .text               mc_w.l(memcpya.o)
+    0x080002b4   0x080002b4   0x00000024   Code   RO         6651    .text               mc_w.l(memseta.o)
+    0x080002d8   0x080002d8   0x0000002c   Code   RO         6933    .text               mc_w.l(uidiv.o)
+    0x08000304   0x08000304   0x00000024   Code   RO         6948    .text               mc_w.l(init.o)
+    0x08000328   0x08000328   0x00000002   Code   RO         4912    i.BusFault_Handler  stm32f4xx_it.o
+    0x0800032a   0x0800032a   0x00000002   Code   RO         4913    i.DebugMon_Handler  stm32f4xx_it.o
+    0x0800032c   0x0800032c   0x0000007c   Code   RO         1842    i.GPIO_Init         stm32f4xx_gpio_1.o
+    0x080003a8   0x080003a8   0x00000020   Code   RO         1843    i.GPIO_PinAFConfig  stm32f4xx_gpio_1.o
+    0x080003c8   0x080003c8   0x00000006   Code   RO         1849    i.GPIO_ResetBits    stm32f4xx_gpio_1.o
+    0x080003ce   0x080003ce   0x00000004   Code   RO         1850    i.GPIO_SetBits      stm32f4xx_gpio_1.o
+    0x080003d2   0x080003d2   0x00000002   Code   RO         4914    i.HardFault_Handler  stm32f4xx_it.o
+    0x080003d4   0x080003d4   0x00000002   Code   RO         4915    i.MemManage_Handler  stm32f4xx_it.o
+    0x080003d6   0x080003d6   0x00000002   Code   RO         4916    i.NMI_Handler       stm32f4xx_it.o
+    0x080003d8   0x080003d8   0x00000014   Code   RO            5    i.NVIC_PriorityGroupConfig  misc_1.o
+    0x080003ec   0x080003ec   0x0000001c   Code   RO         2783    i.RCC_AHB1PeriphClockCmd  stm32f4xx_rcc_1.o
+    0x08000408   0x08000408   0x0000001c   Code   RO         2792    i.RCC_APB2PeriphClockCmd  stm32f4xx_rcc_1.o
+    0x08000424   0x08000424   0x000000a0   Code   RO         2801    i.RCC_GetClocksFreq  stm32f4xx_rcc_1.o
+    0x080004c4   0x080004c4   0x000000b4   Code   RO         5017    i.SetSysClock       system_stm32f4xx.o
+    0x08000578   0x08000578   0x0000001c   Code   RO            8    i.SysTick_CLKSourceConfig  misc_1.o
+    0x08000594   0x08000594   0x0000002c   Code   RO         5341    i.SysTick_Handler   port.o
+    0x080005c0   0x080005c0   0x0000005c   Code   RO         5019    i.SystemInit        system_stm32f4xx.o
+    0x0800061c   0x0800061c   0x00000084   Code   RO         5118    i.UARTInit          uart.o
+    0x080006a0   0x080006a0   0x00000018   Code   RO         4658    i.USART_Cmd         stm32f4xx_usart_1.o
+    0x080006b8   0x080006b8   0x000000bc   Code   RO         4665    i.USART_Init        stm32f4xx_usart_1.o
+    0x08000774   0x08000774   0x00000002   Code   RO         4918    i.UsageFault_Handler  stm32f4xx_it.o
+    0x08000776   0x08000776   0x00000002   PAD
+    0x08000778   0x08000778   0x00000020   Code   RO         6744    i.__0printf$3       mc_w.l(printf3.o)
+    0x08000798   0x08000798   0x0000000e   Code   RO         6960    i.__scatterload_copy  mc_w.l(handlers.o)
+    0x080007a6   0x080007a6   0x00000002   Code   RO         6961    i.__scatterload_null  mc_w.l(handlers.o)
+    0x080007a8   0x080007a8   0x0000000e   Code   RO         6962    i.__scatterload_zeroinit  mc_w.l(handlers.o)
+    0x080007b6   0x080007b6   0x00000002   PAD
+    0x080007b8   0x080007b8   0x000001b8   Code   RO         6751    i._printf_core      mc_w.l(printf3.o)
+    0x08000970   0x08000970   0x0000010c   Code   RO         6586    i.creat_task        rtostop.o
+    0x08000a7c   0x08000a7c   0x00000018   Code   RO         5199    i.delayInit         delay.o
+    0x08000a94   0x08000a94   0x00000014   Code   RO         5122    i.fputc             uart.o
+    0x08000aa8   0x08000aa8   0x00000034   Code   RO         5175    i.ledInit           led.o
+    0x08000adc   0x08000adc   0x00000028   Code   RO         6587    i.led_blink         rtostop.o
+    0x08000b04   0x08000b04   0x00000016   Code   RO         5065    i.main              main.o
+    0x08000b1a   0x08000b1a   0x00000002   PAD
+    0x08000b1c   0x08000b1c   0x00000078   Code   RO         6031    i.prvAddCurrentTaskToDelayedList  tasks.o
+    0x08000b94   0x08000b94   0x000000a8   Code   RO         6032    i.prvAddNewTaskToReadyList  tasks.o
+    0x08000c3c   0x08000c3c   0x00000050   Code   RO         6411    i.prvCheckForValidListAndQueue  timers.o
+    0x08000c8c   0x08000c8c   0x0000003c   Code   RO         6033    i.prvCheckTasksWaitingTermination  tasks.o
+    0x08000cc8   0x08000cc8   0x00000028   Code   RO         5625    i.prvCopyDataFromQueue  queue.o
+    0x08000cf0   0x08000cf0   0x00000014   Code   RO         6034    i.prvDeleteTCB      tasks.o
+    0x08000d04   0x08000d04   0x00000024   Code   RO         6412    i.prvGetNextExpireTime  timers.o
+    0x08000d28   0x08000d28   0x00000048   Code   RO         5239    i.prvHeapInit       heap_4.o
+    0x08000d70   0x08000d70   0x00000028   Code   RO         6035    i.prvIdleTask       tasks.o
+    0x08000d98   0x08000d98   0x00000022   Code   RO         5629    i.prvInitialiseNewQueue  queue.o
+    0x08000dba   0x08000dba   0x000000a2   Code   RO         6036    i.prvInitialiseNewTask  tasks.o
+    0x08000e5c   0x08000e5c   0x00000058   Code   RO         6037    i.prvInitialiseTaskLists  tasks.o
+    0x08000eb4   0x08000eb4   0x00000054   Code   RO         5240    i.prvInsertBlockIntoFreeList  heap_4.o
+    0x08000f08   0x08000f08   0x00000040   Code   RO         6414    i.prvInsertTimerInActiveList  timers.o
+    0x08000f48   0x08000f48   0x0000001a   Code   RO         5630    i.prvIsQueueEmpty   queue.o
+    0x08000f62   0x08000f62   0x00000002   PAD
+    0x08000f64   0x08000f64   0x00000040   Code   RO         6415    i.prvProcessExpiredTimer  timers.o
+    0x08000fa4   0x08000fa4   0x000000e4   Code   RO         6416    i.prvProcessReceivedCommands  timers.o
+    0x08001088   0x08001088   0x0000006c   Code   RO         6417    i.prvProcessTimerOrBlockTask  timers.o
+    0x080010f4   0x080010f4   0x00000028   Code   RO         6418    i.prvReloadTimer    timers.o
+    0x0800111c   0x0800111c   0x00000020   Code   RO         6039    i.prvResetNextTaskUnblockTime  tasks.o
+    0x0800113c   0x0800113c   0x0000002c   Code   RO         6419    i.prvSampleTimeNow  timers.o
+    0x08001168   0x08001168   0x0000002c   Code   RO         6420    i.prvSwitchTimerLists  timers.o
+    0x08001194   0x08001194   0x0000002c   Code   RO         5342    i.prvTaskExitError  port.o
+    0x080011c0   0x080011c0   0x00000014   Code   RO         6421    i.prvTimerTask      timers.o
+    0x080011d4   0x080011d4   0x0000006a   Code   RO         5632    i.prvUnlockQueue    queue.o
+    0x0800123e   0x0800123e   0x00000002   PAD
+    0x08001240   0x08001240   0x000000c8   Code   RO         5242    i.pvPortMalloc      heap_4.o
+    0x08001308   0x08001308   0x00000024   Code   RO         5343    i.pxPortInitialiseStack  port.o
+    0x0800132c   0x0800132c   0x00000074   Code   RO         6588    i.rtos_init         rtostop.o
+    0x080013a0   0x080013a0   0x00000034   Code   RO         6589    i.task1_task        rtostop.o
+    0x080013d4   0x080013d4   0x00000034   Code   RO         6590    i.task2_task        rtostop.o
+    0x08001408   0x08001408   0x00000026   Code   RO         5569    i.uxListRemove      list.o
+    0x0800142e   0x0800142e   0x00000016   Code   RO         5570    i.vListInitialise   list.o
+    0x08001444   0x08001444   0x00000006   Code   RO         5571    i.vListInitialiseItem  list.o
+    0x0800144a   0x0800144a   0x00000030   Code   RO         5572    i.vListInsert       list.o
+    0x0800147a   0x0800147a   0x00000018   Code   RO         5573    i.vListInsertEnd    list.o
+    0x08001492   0x08001492   0x00000002   PAD
+    0x08001494   0x08001494   0x00000040   Code   RO         5345    i.vPortEnterCritical  port.o
+    0x080014d4   0x080014d4   0x0000002c   Code   RO         5346    i.vPortExitCritical  port.o
+    0x08001500   0x08001500   0x00000064   Code   RO         5243    i.vPortFree         heap_4.o
+    0x08001564   0x08001564   0x00000024   Code   RO         5347    i.vPortSetupTimerInterrupt  port.o
+    0x08001588   0x08001588   0x0000004c   Code   RO         5638    i.vQueueAddToRegistry  queue.o
+    0x080015d4   0x080015d4   0x00000046   Code   RO         5642    i.vQueueWaitForMessageRestricted  queue.o
+    0x0800161a   0x0800161a   0x00000002   PAD
+    0x0800161c   0x0800161c   0x00000050   Code   RO         6051    i.vTaskDelay        tasks.o
+    0x0800166c   0x0800166c   0x00000094   Code   RO         6052    i.vTaskDelete       tasks.o
+    0x08001700   0x08001700   0x00000010   Code   RO         6056    i.vTaskInternalSetTimeOutState  tasks.o
+    0x08001710   0x08001710   0x0000000c   Code   RO         6057    i.vTaskMissedYield  tasks.o
+    0x0800171c   0x0800171c   0x00000034   Code   RO         6058    i.vTaskPlaceOnEventList  tasks.o
+    0x08001750   0x08001750   0x00000054   Code   RO         6059    i.vTaskPlaceOnEventListRestricted  tasks.o
+    0x080017a4   0x080017a4   0x00000070   Code   RO         6067    i.vTaskStartScheduler  tasks.o
+    0x08001814   0x08001814   0x00000010   Code   RO         6069    i.vTaskSuspendAll   tasks.o
+    0x08001824   0x08001824   0x00000068   Code   RO         6070    i.vTaskSwitchContext  tasks.o
+    0x0800188c   0x0800188c   0x000000f4   Code   RO         5349    i.xPortStartScheduler  port.o
+    0x08001980   0x08001980   0x00000050   Code   RO         5645    i.xQueueGenericCreate  queue.o
+    0x080019d0   0x080019d0   0x000000b4   Code   RO         5646    i.xQueueGenericReset  queue.o
+    0x08001a84   0x08001a84   0x0000013c   Code   RO         5655    i.xQueueReceive     queue.o
+    0x08001bc0   0x08001bc0   0x00000080   Code   RO         6072    i.xTaskCheckForTimeOut  tasks.o
+    0x08001c40   0x08001c40   0x00000068   Code   RO         6073    i.xTaskCreate       tasks.o
+    0x08001ca8   0x08001ca8   0x0000001c   Code   RO         6080    i.xTaskGetSchedulerState  tasks.o
+    0x08001cc4   0x08001cc4   0x0000000c   Code   RO         6081    i.xTaskGetTickCount  tasks.o
+    0x08001cd0   0x08001cd0   0x0000012c   Code   RO         6083    i.xTaskIncrementTick  tasks.o
+    0x08001dfc   0x08001dfc   0x000000dc   Code   RO         6086    i.xTaskRemoveFromEventList  tasks.o
+    0x08001ed8   0x08001ed8   0x00000124   Code   RO         6087    i.xTaskResumeAll    tasks.o
+    0x08001ffc   0x08001ffc   0x00000050   Code   RO         6429    i.xTimerCreateTimerTask  timers.o
+    0x0800204c   0x0800204c   0x0000000b   Data   RO         6591    .constdata          rtostop.o
+    0x08002057   0x08002057   0x00000001   PAD
+    0x08002058   0x08002058   0x00000020   Data   RO         6958    Region$$Table       anon$$obj.o
+
+
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08002078, Size: 0x000091e8, Max: 0x00010000, ABSOLUTE)
+
+    Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
+
+    0x20000000   0x08002078   0x00000010   Data   RW         2831    .data               stm32f4xx_rcc_1.o
+    0x20000010   0x08002088   0x00000014   Data   RW         5020    .data               system_stm32f4xx.o
+    0x20000024   0x0800209c   0x0000001c   Data   RW         5249    .data               heap_4.o
+    0x20000040   0x080020b8   0x0000000c   Data   RW         5350    .data               port.o
+    0x2000004c   0x080020c4   0x00000040   Data   RW         6090    .data               tasks.o
+    0x2000008c   0x08002104   0x00000014   Data   RW         6437    .data               timers.o
+    0x200000a0   0x08002118   0x00000010   Data   RW         6592    .data               rtostop.o
+    0x200000b0   0x08002128   0x00000004   Data   RW         6932    .data               mc_w.l(stdout.o)
+    0x200000b4        -       0x00008c00   Zero   RW         5248    .bss                heap_4.o
+    0x20008cb4        -       0x00000040   Zero   RW         5659    .bss                queue.o
+    0x20008cf4        -       0x000000c8   Zero   RW         6089    .bss                tasks.o
+    0x20008dbc        -       0x00000028   Zero   RW         6436    .bss                timers.o
+    0x20008de4   0x0800212c   0x00000004   PAD
+    0x20008de8        -       0x00000400   Zero   RW         5055    STACK               startup_stm32f401xx.o
 
 
 ==============================================================================
@@ -1756,22 +2722,30 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-       164         10          0          0          0       1187   delay.o
-        52          6          0          0          0        526   led.o
-       124         52          0          0          0        503   main.o
-        28          0          0          0          0     239618   misc_1.o
-        36          8        404          0       1024        836   startup_stm32f401xx.o
-       166          0          0          0          0       3043   stm32f4xx_gpio_1.o
-        40          4          0          4          0       5362   stm32f4xx_it.o
-       216         24          0         16          0       4418   stm32f4xx_rcc_1.o
-       212          8          0          0          0       2385   stm32f4xx_usart_1.o
-       272         34          0         20          0       1961   system_stm32f4xx.o
-       152         14          0          0          0       2939   uart.o
+        24          0          0          0          0        488   delay.o
+         0          0          0          0          0      11796   event_groups.o
+       456         28          0         28      35840      19835   heap_4.o
+        52          6          0          0          0        518   led.o
+       138          0          0          0          0       3578   list.o
+        22          0          0          0          0        455   main.o
+        48         10          0          0          0     240101   misc_1.o
+       702         74          0         12          0      10472   port.o
+       928         14          0          0         64      13131   queue.o
+       528        258         11         16          0       3296   rtostop.o
+        36          8        404          0       1024        824   startup_stm32f401xx.o
+       166          0          0          0          0       2995   stm32f4xx_gpio_1.o
+        12          0          0          0          0      16737   stm32f4xx_it.o
+       216         24          0         16          0       4370   stm32f4xx_rcc_1.o
+       212          8          0          0          0       2357   stm32f4xx_usart_1.o
+       272         34          0         20          0       1913   system_stm32f4xx.o
+      2398        176          0         64        200      29144   tasks.o
+       808         88          0         20         40      14092   timers.o
+       152         14          0          0          0       2915   uart.o
 
     ----------------------------------------------------------------------
-      1468        160        436         40       1024     262778   Object Totals
+      7184        742        448        176      37172     379017   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         6          0          0          0          0          0   (incl. Padding)
+        14          0          1          0          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1788,21 +2762,24 @@ Image component sizes
          8          4          0          0          0          0   entry9a.o
         30          0          0          0          0          0   handlers.o
         36          8          0          0          0         68   init.o
-        50          8          0          0          0        152   printfb.o
+        36          0          0          0          0         68   memcpya.o
+        36          0          0          0          0        108   memseta.o
+       472         14          0          0          0        184   printf3.o
          0          0          0          4          0          0   stdout.o
+        44          0          0          0          0         80   uidiv.o
 
     ----------------------------------------------------------------------
-       140         24          0          4          4        220   Library Totals
-         0          0          0          0          4          0   (incl. Padding)
+       680         30          0          4          0        508   Library Totals
+         2          0          0          0          0          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
 
-       140         24          0          4          0        220   mc_w.l
+       678         30          0          4          0        508   mc_w.l
 
     ----------------------------------------------------------------------
-       140         24          0          4          4        220   Library Totals
+       680         30          0          4          0        508   Library Totals
 
     ----------------------------------------------------------------------
 
@@ -1811,15 +2788,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      1608        184        436         44       1028     260850   Grand Totals
-      1608        184        436         44       1028     260850   ELF Image Totals
-      1608        184        436         44          0          0   ROM Totals
+      7864        772        448        180      37172     371173   Grand Totals
+      7864        772        448        180      37172     371173   ELF Image Totals
+      7864        772        448        180          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 2044 (   2.00kB)
-    Total RW  Size (RW Data + ZI Data)              1072 (   1.05kB)
-    Total ROM Size (Code + RO Data + RW Data)       2088 (   2.04kB)
+    Total RO  Size (Code + RO Data)                 8312 (   8.12kB)
+    Total RW  Size (RW Data + ZI Data)             37352 (  36.48kB)
+    Total ROM Size (Code + RO Data + RW Data)       8492 (   8.29kB)
 
 ==============================================================================
 
