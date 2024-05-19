@@ -1,30 +1,15 @@
-.\objects\led.o: ..\Hardware\led\led.c
-.\objects\led.o: ..\Hardware\led\led.h
-.\objects\led.o: ..\Sys\stm32f4xx.h
-.\objects\led.o: ..\Core\core_cm4.h
-.\objects\led.o: D:\Keil\Keil_core\ARM\ARMCC\Bin\..\include\stdint.h
-.\objects\led.o: ..\Core\core_cmInstr.h
-.\objects\led.o: ..\Core\core_cmFunc.h
-.\objects\led.o: ..\Core\core_cmSimd.h
-.\objects\led.o: ..\Sys\system_stm32f4xx.h
-.\objects\led.o: ..\Sys\stm32f4xx_conf.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_adc.h
-.\objects\led.o: ..\Sys\stm32f4xx.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_crc.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_dbgmcu.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_dma.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_exti.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_flash.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_gpio.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_i2c.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_iwdg.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_pwr.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_rcc.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_rtc.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_sdio.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_spi.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_syscfg.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_tim.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_usart.h
-.\objects\led.o: ..\Periph\inc\stm32f4xx_wwdg.h
-.\objects\led.o: ..\Periph\inc\misc.h
+./objects/led.o: ..\Hardware\led\led.c ..\Hardware\led\led.h \
+  ..\Sys\stm32f4xx.h ..\Core\core_cm4.h \
+  D:\Keil\Keil_core\ARM\ARMCLANG\Bin\..\include\stdint.h \
+  ..\Core\cmsis_version.h ..\Core\cmsis_compiler.h \
+  ..\Core\cmsis_armclang.h ..\Core\mpu_armv7.h ..\Sys\system_stm32f4xx.h \
+  ..\Sys\stm32f4xx_conf.h ..\Periph\inc\stm32f4xx_adc.h \
+  ..\Periph\inc\stm32f4xx_crc.h ..\Periph\inc\stm32f4xx_dbgmcu.h \
+  ..\Periph\inc\stm32f4xx_dma.h ..\Periph\inc\stm32f4xx_exti.h \
+  ..\Periph\inc\stm32f4xx_flash.h ..\Periph\inc\stm32f4xx_gpio.h \
+  ..\Periph\inc\stm32f4xx_i2c.h ..\Periph\inc\stm32f4xx_iwdg.h \
+  ..\Periph\inc\stm32f4xx_pwr.h ..\Periph\inc\stm32f4xx_rcc.h \
+  ..\Periph\inc\stm32f4xx_rtc.h ..\Periph\inc\stm32f4xx_sdio.h \
+  ..\Periph\inc\stm32f4xx_spi.h ..\Periph\inc\stm32f4xx_syscfg.h \
+  ..\Periph\inc\stm32f4xx_tim.h ..\Periph\inc\stm32f4xx_usart.h \
+  ..\Periph\inc\stm32f4xx_wwdg.h ..\Periph\inc\misc.h
